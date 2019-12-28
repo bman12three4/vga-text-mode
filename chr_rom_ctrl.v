@@ -2,15 +2,15 @@ module chr_rom_ctrl (
 
 		input clk,
 
-		input chr_val,
+		input [7:0] chr_val,
 		
-		input [7:0] col,
+		input [3:0] col,
 		input [3:0] row,
 		
-		output [8:0] char_line
+		output pixel
 	);
 	
-	wire [8:0] m_char_line;
+	wire [7:0] m_char_line;
 	
 	wire [10:0] pixel_addr;
 	
@@ -19,7 +19,7 @@ module chr_rom_ctrl (
 	chr_rom a (
 		.address (pixel_addr),
 		.clock (clk),
-		.q (m_char_line)
+		.q (m_char_col)
 	);
 	
 endmodule //chr_rom_ctrl

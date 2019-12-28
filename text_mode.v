@@ -28,12 +28,14 @@ module text_mode (
 	reg [10:0] screen_address;
 	
 	reg [7:0] col;
-	reg [9:0] chr_row;
+	reg [7:0] row;
+	
+	reg [3:0] sub_col;
 	reg [3:0] sub_row;
 	
 	wire [7:0] chr_val;
 	
-	wire [8:0] chr_line;
+	wire pixel;
 	
 	assign addr_hex0_o = ~screen_address [6:0];
 	assign addr_hex1_o = ~screen_address [10:7];
@@ -59,9 +61,9 @@ module text_mode (
 	chr_rom_ctrl c (
 		.clk (vga_clk),
 		.chr_val (chr_val),
-		.col (col),
+		.col (sub_col),
 		.row (sub_row),
-		.char_line (chr_line)
+		.pixel (pixel)
 	);
 	
 	
