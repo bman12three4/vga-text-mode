@@ -43,11 +43,11 @@ module text_mode (
 	reg [9:0] h_pixel;
 	reg [8:0] line;
 	
-	wire [7:0] chr_val;
+	(* keep *) wire [7:0] chr_val;
 	
 	reg [7:0] user_char;
 	
-	wire pixel;
+	(* keep *) wire pixel;
 	
 	assign data_led_o = user_char;
 	

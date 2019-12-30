@@ -10,10 +10,11 @@ module chr_rom_ctrl (
 		output pixel
 	);
 	
-	wire [10:0] pixel_addr;
-	wire [7:0] char_byte;
+	(* keep *) wire [10:0] pixel_addr;
+	(* keep *) wire [7:0] char_byte;
 	
-	assign pixel_addr = ((chr_val - 32) << 4) + row;
+	assign pixel_addr = ((chr_val - 32) << 4) + row;   //so for the "1", thats 21h, or 33. 33-32 is 1, 
+																		//1<<4 is 16, so this should go from 16 to 31, or 10h to 1f
 	
 	chr_rom a (
 		.address (pixel_addr),
