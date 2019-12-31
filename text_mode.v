@@ -41,7 +41,7 @@ module text_mode (
 	reg [3:0] subY;
 	
 	reg [9:0] h_pixel;
-	reg [8:0] line;
+	reg [9:0] line;
 	
 	(* keep *) wire [7:0] chr_val;
 	
@@ -187,8 +187,8 @@ module text_mode (
 			line <= line + 9'b1;
 		end
 		else begin
-			line <= 0;
 			screenY <= 0;
+			line <= 0;
 			subY <= 0;
 		end
 	end
