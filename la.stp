@@ -19,7 +19,7 @@
     <position_info>
       <single attribute="active tab" value="1"/>
       <single attribute="data vertical scroll position" value="0"/>
-      <single attribute="data horizontal scroll position" value="507"/>
+      <single attribute="data horizontal scroll position" value="595"/>
       <single attribute="zoom level numerator" value="8"/>
       <single attribute="zoom level denominator" value="1"/>
       <single attribute="zoom offset numerator" value="16368"/>
@@ -27,8 +27,10 @@
       <multi attribute="timebars" size="0" value=""/>
       <single attribute="setup vertical scroll position" value="0"/>
       <single attribute="setup horizontal scroll position" value="0"/>
+      <single attribute="setup hierarchy text_mode" value="3"/>
+      <single attribute="setup hierarchy chr_rom_ctrl:c" value="3"/>
     </position_info>
-    <signal_set global_temp="1" name="signal_set: 2019/12/31 14:53:12  #0">
+    <signal_set global_temp="1" name="signal_set: 2019/12/31 21:16:45  #0">
       <clock name="clk" polarity="posedge" tap_mode="probeonly"/>
       <config ram_type="AUTO" reserved_data_nodes="0" reserved_storage_qualifier_nodes="0" reserved_trigger_nodes="0" sample_depth="4096" trigger_in_enable="no" trigger_out_enable="no"/>
       <top_entity/>
@@ -44,6 +46,18 @@
           <wire name="line[7]" tap_mode="probeonly"/>
           <wire name="line[8]" tap_mode="probeonly"/>
           <wire name="line[9]" tap_mode="probeonly"/>
+          <wire name="screen_address[0]" tap_mode="probeonly"/>
+          <wire name="screen_address[10]" tap_mode="probeonly"/>
+          <wire name="screen_address[11]" tap_mode="probeonly"/>
+          <wire name="screen_address[1]" tap_mode="probeonly"/>
+          <wire name="screen_address[2]" tap_mode="probeonly"/>
+          <wire name="screen_address[3]" tap_mode="probeonly"/>
+          <wire name="screen_address[4]" tap_mode="probeonly"/>
+          <wire name="screen_address[5]" tap_mode="probeonly"/>
+          <wire name="screen_address[6]" tap_mode="probeonly"/>
+          <wire name="screen_address[7]" tap_mode="probeonly"/>
+          <wire name="screen_address[8]" tap_mode="probeonly"/>
+          <wire name="screen_address[9]" tap_mode="probeonly"/>
         </trigger_input_vec>
         <data_input_vec>
           <wire name="chr_rom_ctrl:c|char_byte[0]" tap_mode="probeonly"/>
@@ -73,14 +87,6 @@
           <wire name="chr_rom_ctrl:c|pixel_mask[5]" tap_mode="probeonly"/>
           <wire name="chr_rom_ctrl:c|pixel_mask[6]" tap_mode="probeonly"/>
           <wire name="chr_rom_ctrl:c|pixel_mask[7]" tap_mode="probeonly"/>
-          <wire name="chr_val[0]" tap_mode="probeonly"/>
-          <wire name="chr_val[1]" tap_mode="probeonly"/>
-          <wire name="chr_val[2]" tap_mode="probeonly"/>
-          <wire name="chr_val[3]" tap_mode="probeonly"/>
-          <wire name="chr_val[4]" tap_mode="probeonly"/>
-          <wire name="chr_val[5]" tap_mode="probeonly"/>
-          <wire name="chr_val[6]" tap_mode="probeonly"/>
-          <wire name="chr_val[7]" tap_mode="probeonly"/>
           <wire name="h_pixel[0]" tap_mode="probeonly"/>
           <wire name="h_pixel[1]" tap_mode="probeonly"/>
           <wire name="h_pixel[2]" tap_mode="probeonly"/>
@@ -103,18 +109,6 @@
           <wire name="line[8]" tap_mode="probeonly"/>
           <wire name="line[9]" tap_mode="probeonly"/>
           <wire name="pixel" tap_mode="probeonly"/>
-          <wire name="screenX[0]" tap_mode="probeonly"/>
-          <wire name="screenX[1]" tap_mode="probeonly"/>
-          <wire name="screenX[2]" tap_mode="probeonly"/>
-          <wire name="screenX[3]" tap_mode="probeonly"/>
-          <wire name="screenX[4]" tap_mode="probeonly"/>
-          <wire name="screenX[5]" tap_mode="probeonly"/>
-          <wire name="screenX[6]" tap_mode="probeonly"/>
-          <wire name="screenY[0]" tap_mode="probeonly"/>
-          <wire name="screenY[1]" tap_mode="probeonly"/>
-          <wire name="screenY[2]" tap_mode="probeonly"/>
-          <wire name="screenY[3]" tap_mode="probeonly"/>
-          <wire name="screenY[4]" tap_mode="probeonly"/>
           <wire name="screen_address[0]" tap_mode="probeonly"/>
           <wire name="screen_address[10]" tap_mode="probeonly"/>
           <wire name="screen_address[11]" tap_mode="probeonly"/>
@@ -135,6 +129,7 @@
           <wire name="subY[2]" tap_mode="probeonly"/>
           <wire name="subY[3]" tap_mode="probeonly"/>
           <wire name="v_sync_o~reg0" tap_mode="probeonly"/>
+          <wire name="vga_clk" tap_mode="probeonly"/>
         </data_input_vec>
         <storage_qualifier_input_vec>
           <wire name="chr_rom_ctrl:c|char_byte[0]" tap_mode="probeonly"/>
@@ -164,14 +159,6 @@
           <wire name="chr_rom_ctrl:c|pixel_mask[5]" tap_mode="probeonly"/>
           <wire name="chr_rom_ctrl:c|pixel_mask[6]" tap_mode="probeonly"/>
           <wire name="chr_rom_ctrl:c|pixel_mask[7]" tap_mode="probeonly"/>
-          <wire name="chr_val[0]" tap_mode="probeonly"/>
-          <wire name="chr_val[1]" tap_mode="probeonly"/>
-          <wire name="chr_val[2]" tap_mode="probeonly"/>
-          <wire name="chr_val[3]" tap_mode="probeonly"/>
-          <wire name="chr_val[4]" tap_mode="probeonly"/>
-          <wire name="chr_val[5]" tap_mode="probeonly"/>
-          <wire name="chr_val[6]" tap_mode="probeonly"/>
-          <wire name="chr_val[7]" tap_mode="probeonly"/>
           <wire name="h_pixel[0]" tap_mode="probeonly"/>
           <wire name="h_pixel[1]" tap_mode="probeonly"/>
           <wire name="h_pixel[2]" tap_mode="probeonly"/>
@@ -194,18 +181,6 @@
           <wire name="line[8]" tap_mode="probeonly"/>
           <wire name="line[9]" tap_mode="probeonly"/>
           <wire name="pixel" tap_mode="probeonly"/>
-          <wire name="screenX[0]" tap_mode="probeonly"/>
-          <wire name="screenX[1]" tap_mode="probeonly"/>
-          <wire name="screenX[2]" tap_mode="probeonly"/>
-          <wire name="screenX[3]" tap_mode="probeonly"/>
-          <wire name="screenX[4]" tap_mode="probeonly"/>
-          <wire name="screenX[5]" tap_mode="probeonly"/>
-          <wire name="screenX[6]" tap_mode="probeonly"/>
-          <wire name="screenY[0]" tap_mode="probeonly"/>
-          <wire name="screenY[1]" tap_mode="probeonly"/>
-          <wire name="screenY[2]" tap_mode="probeonly"/>
-          <wire name="screenY[3]" tap_mode="probeonly"/>
-          <wire name="screenY[4]" tap_mode="probeonly"/>
           <wire name="screen_address[0]" tap_mode="probeonly"/>
           <wire name="screen_address[10]" tap_mode="probeonly"/>
           <wire name="screen_address[11]" tap_mode="probeonly"/>
@@ -226,76 +201,48 @@
           <wire name="subY[2]" tap_mode="probeonly"/>
           <wire name="subY[3]" tap_mode="probeonly"/>
           <wire name="v_sync_o~reg0" tap_mode="probeonly"/>
+          <wire name="vga_clk" tap_mode="probeonly"/>
         </storage_qualifier_input_vec>
       </signal_vec>
       <presentation>
         <unified_setup_data_view>
-          <node name="screen_address[0..11]" order="lsb_to_msb" state="collapse" type="unknown">
-            <node data_index="69" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[0]" storage_index="69" tap_mode="probeonly" trigger_index="32" type="unknown"/>
-            <node data_index="72" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[1]" storage_index="72" tap_mode="probeonly" trigger_index="35" type="unknown"/>
-            <node data_index="73" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[2]" storage_index="73" tap_mode="probeonly" trigger_index="36" type="unknown"/>
-            <node data_index="74" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[3]" storage_index="74" tap_mode="probeonly" trigger_index="37" type="unknown"/>
-            <node data_index="75" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[4]" storage_index="75" tap_mode="probeonly" trigger_index="38" type="unknown"/>
-            <node data_index="76" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[5]" storage_index="76" tap_mode="probeonly" trigger_index="39" type="unknown"/>
-            <node data_index="77" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[6]" storage_index="77" tap_mode="probeonly" trigger_index="40" type="unknown"/>
-            <node data_index="78" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[7]" storage_index="78" tap_mode="probeonly" trigger_index="41" type="unknown"/>
-            <node data_index="79" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[8]" storage_index="79" tap_mode="probeonly" trigger_index="42" type="unknown"/>
-            <node data_index="80" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[9]" storage_index="80" tap_mode="probeonly" trigger_index="43" type="unknown"/>
-            <node data_index="70" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[10]" storage_index="70" tap_mode="probeonly" trigger_index="33" type="unknown"/>
-            <node data_index="71" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[11]" storage_index="71" tap_mode="probeonly" trigger_index="34" type="unknown"/>
-          </node>
+          <node data_index="57" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="vga_clk" storage_index="57" tap_mode="probeonly" type="unknown"/>
+          <node data_index="56" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="v_sync_o~reg0" storage_index="56" tap_mode="probeonly" trigger_index="42" type="unknown"/>
+          <node data_index="37" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="h_sync_o~reg0" storage_index="37" tap_mode="probeonly" trigger_index="35" type="unknown"/>
           <node name="line[0..9]" order="lsb_to_msb" type="unknown">
-            <node data_index="46" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[0]" storage_index="46" tap_mode="probeonly" trigger_index="0" type="unknown"/>
-            <node data_index="47" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[1]" storage_index="47" tap_mode="probeonly" trigger_index="1" type="unknown"/>
-            <node data_index="48" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[2]" storage_index="48" tap_mode="probeonly" trigger_index="2" type="unknown"/>
-            <node data_index="49" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[3]" storage_index="49" tap_mode="probeonly" trigger_index="3" type="unknown"/>
-            <node data_index="50" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[4]" storage_index="50" tap_mode="probeonly" trigger_index="4" type="unknown"/>
-            <node data_index="51" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[5]" storage_index="51" tap_mode="probeonly" trigger_index="5" type="unknown"/>
-            <node data_index="52" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[6]" storage_index="52" tap_mode="probeonly" trigger_index="6" type="unknown"/>
-            <node data_index="53" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[7]" storage_index="53" tap_mode="probeonly" trigger_index="7" type="unknown"/>
-            <node data_index="54" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[8]" storage_index="54" tap_mode="probeonly" trigger_index="8" type="unknown"/>
-            <node data_index="55" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[9]" storage_index="55" tap_mode="probeonly" trigger_index="9" type="unknown"/>
+            <node data_index="38" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="high" name="line[0]" storage_index="38" tap_mode="probeonly" trigger_index="0" type="unknown"/>
+            <node data_index="39" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[1]" storage_index="39" tap_mode="probeonly" trigger_index="1" type="unknown"/>
+            <node data_index="40" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[2]" storage_index="40" tap_mode="probeonly" trigger_index="2" type="unknown"/>
+            <node data_index="41" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[3]" storage_index="41" tap_mode="probeonly" trigger_index="3" type="unknown"/>
+            <node data_index="42" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[4]" storage_index="42" tap_mode="probeonly" trigger_index="4" type="unknown"/>
+            <node data_index="43" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[5]" storage_index="43" tap_mode="probeonly" trigger_index="5" type="unknown"/>
+            <node data_index="44" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[6]" storage_index="44" tap_mode="probeonly" trigger_index="6" type="unknown"/>
+            <node data_index="45" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[7]" storage_index="45" tap_mode="probeonly" trigger_index="7" type="unknown"/>
+            <node data_index="46" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[8]" storage_index="46" tap_mode="probeonly" trigger_index="8" type="unknown"/>
+            <node data_index="47" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[9]" storage_index="47" tap_mode="probeonly" trigger_index="9" type="unknown"/>
           </node>
           <node name="h_pixel[0..9]" order="lsb_to_msb" state="collapse" type="unknown">
-            <node data_index="35" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[0]" storage_index="35" tap_mode="probeonly" trigger_index="0" type="unknown"/>
-            <node data_index="36" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[1]" storage_index="36" tap_mode="probeonly" trigger_index="1" type="unknown"/>
-            <node data_index="37" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[2]" storage_index="37" tap_mode="probeonly" trigger_index="2" type="unknown"/>
-            <node data_index="38" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[3]" storage_index="38" tap_mode="probeonly" trigger_index="3" type="unknown"/>
-            <node data_index="39" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[4]" storage_index="39" tap_mode="probeonly" trigger_index="4" type="unknown"/>
-            <node data_index="40" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[5]" storage_index="40" tap_mode="probeonly" trigger_index="5" type="unknown"/>
-            <node data_index="41" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[6]" storage_index="41" tap_mode="probeonly" trigger_index="6" type="unknown"/>
-            <node data_index="42" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[7]" storage_index="42" tap_mode="probeonly" trigger_index="7" type="unknown"/>
-            <node data_index="43" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[8]" storage_index="43" tap_mode="probeonly" trigger_index="8" type="unknown"/>
-            <node data_index="44" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[9]" storage_index="44" tap_mode="probeonly" trigger_index="9" type="unknown"/>
-          </node>
-          <node data_index="88" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="v_sync_o~reg0" storage_index="88" tap_mode="probeonly" trigger_index="42" type="unknown"/>
-          <node data_index="45" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="h_sync_o~reg0" storage_index="45" tap_mode="probeonly" trigger_index="35" type="unknown"/>
-          <node name="screenX[0..6]" order="lsb_to_msb" type="register">
-            <node data_index="57" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="screenX[0]" storage_index="57" tap_mode="probeonly" trigger_index="20" type="unknown"/>
-            <node data_index="58" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="screenX[1]" storage_index="58" tap_mode="probeonly" trigger_index="21" type="unknown"/>
-            <node data_index="59" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="screenX[2]" storage_index="59" tap_mode="probeonly" trigger_index="22" type="unknown"/>
-            <node data_index="60" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="screenX[3]" storage_index="60" tap_mode="probeonly" trigger_index="23" type="unknown"/>
-            <node data_index="61" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="screenX[4]" storage_index="61" tap_mode="probeonly" trigger_index="24" type="unknown"/>
-            <node data_index="62" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="screenX[5]" storage_index="62" tap_mode="probeonly" trigger_index="25" type="unknown"/>
-            <node data_index="63" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="screenX[6]" storage_index="63" tap_mode="probeonly" trigger_index="26" type="unknown"/>
-          </node>
-          <node name="screenY[0..4]" order="lsb_to_msb" state="collapse" type="register">
-            <node data_index="64" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="screenY[0]" storage_index="64" tap_mode="probeonly" trigger_index="37" type="unknown"/>
-            <node data_index="65" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="screenY[1]" storage_index="65" tap_mode="probeonly" trigger_index="38" type="unknown"/>
-            <node data_index="66" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="screenY[2]" storage_index="66" tap_mode="probeonly" trigger_index="39" type="unknown"/>
-            <node data_index="67" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="screenY[3]" storage_index="67" tap_mode="probeonly" trigger_index="40" type="unknown"/>
-            <node data_index="68" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="screenY[4]" storage_index="68" tap_mode="probeonly" trigger_index="41" type="unknown"/>
+            <node data_index="27" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[0]" storage_index="27" tap_mode="probeonly" trigger_index="0" type="unknown"/>
+            <node data_index="28" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[1]" storage_index="28" tap_mode="probeonly" trigger_index="1" type="unknown"/>
+            <node data_index="29" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[2]" storage_index="29" tap_mode="probeonly" trigger_index="2" type="unknown"/>
+            <node data_index="30" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[3]" storage_index="30" tap_mode="probeonly" trigger_index="3" type="unknown"/>
+            <node data_index="31" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[4]" storage_index="31" tap_mode="probeonly" trigger_index="4" type="unknown"/>
+            <node data_index="32" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[5]" storage_index="32" tap_mode="probeonly" trigger_index="5" type="unknown"/>
+            <node data_index="33" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[6]" storage_index="33" tap_mode="probeonly" trigger_index="6" type="unknown"/>
+            <node data_index="34" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[7]" storage_index="34" tap_mode="probeonly" trigger_index="7" type="unknown"/>
+            <node data_index="35" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[8]" storage_index="35" tap_mode="probeonly" trigger_index="8" type="unknown"/>
+            <node data_index="36" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[9]" storage_index="36" tap_mode="probeonly" trigger_index="9" type="unknown"/>
           </node>
           <node name="subX[0..2]" order="lsb_to_msb" type="register">
-            <node data_index="81" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subX[0]" storage_index="81" tap_mode="probeonly" trigger_index="44" type="unknown"/>
-            <node data_index="82" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subX[1]" storage_index="82" tap_mode="probeonly" trigger_index="45" type="unknown"/>
-            <node data_index="83" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subX[2]" storage_index="83" tap_mode="probeonly" trigger_index="46" type="unknown"/>
+            <node data_index="49" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subX[0]" storage_index="49" tap_mode="probeonly" trigger_index="44" type="unknown"/>
+            <node data_index="50" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subX[1]" storage_index="50" tap_mode="probeonly" trigger_index="45" type="unknown"/>
+            <node data_index="51" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subX[2]" storage_index="51" tap_mode="probeonly" trigger_index="46" type="unknown"/>
           </node>
           <node name="subY[0..3]" order="lsb_to_msb" type="register">
-            <node data_index="84" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[0]" storage_index="84" tap_mode="probeonly" trigger_index="47" type="unknown"/>
-            <node data_index="85" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[1]" storage_index="85" tap_mode="probeonly" trigger_index="48" type="unknown"/>
-            <node data_index="86" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[2]" storage_index="86" tap_mode="probeonly" trigger_index="49" type="unknown"/>
-            <node data_index="87" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[3]" storage_index="87" tap_mode="probeonly" trigger_index="50" type="unknown"/>
+            <node data_index="52" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[0]" storage_index="52" tap_mode="probeonly" trigger_index="47" type="unknown"/>
+            <node data_index="53" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[1]" storage_index="53" tap_mode="probeonly" trigger_index="48" type="unknown"/>
+            <node data_index="54" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[2]" storage_index="54" tap_mode="probeonly" trigger_index="49" type="unknown"/>
+            <node data_index="55" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[3]" storage_index="55" tap_mode="probeonly" trigger_index="50" type="unknown"/>
           </node>
           <node name="chr_rom_ctrl:c|pixel_addr[0..10]" order="lsb_to_msb" type="combinatorial">
             <node data_index="8" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|pixel_addr[0]" storage_index="8" tap_mode="probeonly" trigger_index="8" type="unknown"/>
@@ -310,18 +257,7 @@
             <node data_index="18" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|pixel_addr[9]" storage_index="18" tap_mode="probeonly" trigger_index="18" type="unknown"/>
             <node data_index="9" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|pixel_addr[10]" storage_index="9" tap_mode="probeonly" trigger_index="9" type="unknown"/>
           </node>
-          <node name="chr_val[0..7]" order="lsb_to_msb" type="combinatorial">
-            <node data_index="27" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[0]" storage_index="27" tap_mode="probeonly" trigger_index="27" type="unknown"/>
-            <node data_index="28" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[1]" storage_index="28" tap_mode="probeonly" trigger_index="28" type="unknown"/>
-            <node data_index="29" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[2]" storage_index="29" tap_mode="probeonly" trigger_index="29" type="unknown"/>
-            <node data_index="30" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[3]" storage_index="30" tap_mode="probeonly" trigger_index="30" type="unknown"/>
-            <node data_index="31" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[4]" storage_index="31" tap_mode="probeonly" trigger_index="31" type="unknown"/>
-            <node data_index="32" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[5]" storage_index="32" tap_mode="probeonly" trigger_index="32" type="unknown"/>
-            <node data_index="33" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[6]" storage_index="33" tap_mode="probeonly" trigger_index="33" type="unknown"/>
-            <node data_index="34" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[7]" storage_index="34" tap_mode="probeonly" trigger_index="34" type="unknown"/>
-          </node>
-          <node data_index="56" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="pixel" storage_index="56" tap_mode="probeonly" trigger_index="36" type="unknown"/>
-          <node name="chr_rom_ctrl:c|char_byte[0..7]" order="lsb_to_msb" type="combinatorial">
+          <node name="chr_rom_ctrl:c|char_byte[0..7]" order="lsb_to_msb" state="collapse" type="combinatorial">
             <node data_index="0" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|char_byte[0]" storage_index="0" tap_mode="probeonly" trigger_index="0" type="unknown"/>
             <node data_index="1" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|char_byte[1]" storage_index="1" tap_mode="probeonly" trigger_index="1" type="unknown"/>
             <node data_index="2" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|char_byte[2]" storage_index="2" tap_mode="probeonly" trigger_index="2" type="unknown"/>
@@ -341,74 +277,60 @@
             <node data_index="25" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|pixel_mask[6]" storage_index="25" tap_mode="probeonly" trigger_index="25" type="unknown"/>
             <node data_index="26" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|pixel_mask[7]" storage_index="26" tap_mode="probeonly" trigger_index="26" type="unknown"/>
           </node>
+          <node data_index="48" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="pixel" storage_index="48" tap_mode="probeonly" trigger_index="36" type="unknown"/>
+          <node name="screen_address[0..11]" order="lsb_to_msb" type="combinatorial">
+            <node duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[0]" tap_mode="probeonly" type="combinatorial"/>
+            <node duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[1]" tap_mode="probeonly" type="combinatorial"/>
+            <node duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[2]" tap_mode="probeonly" type="combinatorial"/>
+            <node duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[3]" tap_mode="probeonly" type="combinatorial"/>
+            <node duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[4]" tap_mode="probeonly" type="combinatorial"/>
+            <node duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[5]" tap_mode="probeonly" type="combinatorial"/>
+            <node duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[6]" tap_mode="probeonly" type="combinatorial"/>
+            <node duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[7]" tap_mode="probeonly" type="combinatorial"/>
+            <node duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[8]" tap_mode="probeonly" type="combinatorial"/>
+            <node duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[9]" tap_mode="probeonly" type="combinatorial"/>
+            <node duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[10]" tap_mode="probeonly" type="combinatorial"/>
+            <node duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[11]" tap_mode="probeonly" type="combinatorial"/>
+          </node>
         </unified_setup_data_view>
         <data_view>
-          <bus name="screen_address[0..11]" order="lsb_to_msb" state="collapse" type="unknown">
-            <net data_index="69" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[0]" storage_index="69" tap_mode="probeonly" trigger_index="32" type="unknown"/>
-            <net data_index="72" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[1]" storage_index="72" tap_mode="probeonly" trigger_index="35" type="unknown"/>
-            <net data_index="73" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[2]" storage_index="73" tap_mode="probeonly" trigger_index="36" type="unknown"/>
-            <net data_index="74" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[3]" storage_index="74" tap_mode="probeonly" trigger_index="37" type="unknown"/>
-            <net data_index="75" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[4]" storage_index="75" tap_mode="probeonly" trigger_index="38" type="unknown"/>
-            <net data_index="76" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[5]" storage_index="76" tap_mode="probeonly" trigger_index="39" type="unknown"/>
-            <net data_index="77" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[6]" storage_index="77" tap_mode="probeonly" trigger_index="40" type="unknown"/>
-            <net data_index="78" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[7]" storage_index="78" tap_mode="probeonly" trigger_index="41" type="unknown"/>
-            <net data_index="79" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[8]" storage_index="79" tap_mode="probeonly" trigger_index="42" type="unknown"/>
-            <net data_index="80" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[9]" storage_index="80" tap_mode="probeonly" trigger_index="43" type="unknown"/>
-            <net data_index="70" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[10]" storage_index="70" tap_mode="probeonly" trigger_index="33" type="unknown"/>
-            <net data_index="71" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[11]" storage_index="71" tap_mode="probeonly" trigger_index="34" type="unknown"/>
-          </bus>
+          <net data_index="69" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="vga_clk" storage_index="69" tap_mode="probeonly" type="unknown"/>
+          <net data_index="68" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="v_sync_o~reg0" storage_index="68" tap_mode="probeonly" trigger_index="42" type="unknown"/>
+          <net data_index="37" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="h_sync_o~reg0" storage_index="37" tap_mode="probeonly" trigger_index="35" type="unknown"/>
           <bus name="line[0..9]" order="lsb_to_msb" type="unknown">
-            <net data_index="46" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[0]" storage_index="46" tap_mode="probeonly" trigger_index="0" type="unknown"/>
-            <net data_index="47" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[1]" storage_index="47" tap_mode="probeonly" trigger_index="1" type="unknown"/>
-            <net data_index="48" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[2]" storage_index="48" tap_mode="probeonly" trigger_index="2" type="unknown"/>
-            <net data_index="49" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[3]" storage_index="49" tap_mode="probeonly" trigger_index="3" type="unknown"/>
-            <net data_index="50" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[4]" storage_index="50" tap_mode="probeonly" trigger_index="4" type="unknown"/>
-            <net data_index="51" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[5]" storage_index="51" tap_mode="probeonly" trigger_index="5" type="unknown"/>
-            <net data_index="52" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[6]" storage_index="52" tap_mode="probeonly" trigger_index="6" type="unknown"/>
-            <net data_index="53" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[7]" storage_index="53" tap_mode="probeonly" trigger_index="7" type="unknown"/>
-            <net data_index="54" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[8]" storage_index="54" tap_mode="probeonly" trigger_index="8" type="unknown"/>
-            <net data_index="55" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[9]" storage_index="55" tap_mode="probeonly" trigger_index="9" type="unknown"/>
+            <net data_index="38" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="high" name="line[0]" storage_index="38" tap_mode="probeonly" trigger_index="0" type="unknown"/>
+            <net data_index="39" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[1]" storage_index="39" tap_mode="probeonly" trigger_index="1" type="unknown"/>
+            <net data_index="40" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[2]" storage_index="40" tap_mode="probeonly" trigger_index="2" type="unknown"/>
+            <net data_index="41" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[3]" storage_index="41" tap_mode="probeonly" trigger_index="3" type="unknown"/>
+            <net data_index="42" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[4]" storage_index="42" tap_mode="probeonly" trigger_index="4" type="unknown"/>
+            <net data_index="43" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[5]" storage_index="43" tap_mode="probeonly" trigger_index="5" type="unknown"/>
+            <net data_index="44" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[6]" storage_index="44" tap_mode="probeonly" trigger_index="6" type="unknown"/>
+            <net data_index="45" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[7]" storage_index="45" tap_mode="probeonly" trigger_index="7" type="unknown"/>
+            <net data_index="46" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[8]" storage_index="46" tap_mode="probeonly" trigger_index="8" type="unknown"/>
+            <net data_index="47" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[9]" storage_index="47" tap_mode="probeonly" trigger_index="9" type="unknown"/>
           </bus>
           <bus name="h_pixel[0..9]" order="lsb_to_msb" state="collapse" type="unknown">
-            <net data_index="35" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[0]" storage_index="35" tap_mode="probeonly" trigger_index="0" type="unknown"/>
-            <net data_index="36" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[1]" storage_index="36" tap_mode="probeonly" trigger_index="1" type="unknown"/>
-            <net data_index="37" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[2]" storage_index="37" tap_mode="probeonly" trigger_index="2" type="unknown"/>
-            <net data_index="38" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[3]" storage_index="38" tap_mode="probeonly" trigger_index="3" type="unknown"/>
-            <net data_index="39" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[4]" storage_index="39" tap_mode="probeonly" trigger_index="4" type="unknown"/>
-            <net data_index="40" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[5]" storage_index="40" tap_mode="probeonly" trigger_index="5" type="unknown"/>
-            <net data_index="41" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[6]" storage_index="41" tap_mode="probeonly" trigger_index="6" type="unknown"/>
-            <net data_index="42" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[7]" storage_index="42" tap_mode="probeonly" trigger_index="7" type="unknown"/>
-            <net data_index="43" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[8]" storage_index="43" tap_mode="probeonly" trigger_index="8" type="unknown"/>
-            <net data_index="44" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[9]" storage_index="44" tap_mode="probeonly" trigger_index="9" type="unknown"/>
-          </bus>
-          <net data_index="88" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="v_sync_o~reg0" storage_index="88" tap_mode="probeonly" trigger_index="42" type="unknown"/>
-          <net data_index="45" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="h_sync_o~reg0" storage_index="45" tap_mode="probeonly" trigger_index="35" type="unknown"/>
-          <bus name="screenX[0..6]" order="lsb_to_msb" type="register">
-            <net data_index="57" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="screenX[0]" storage_index="57" tap_mode="probeonly" trigger_index="20" type="unknown"/>
-            <net data_index="58" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="screenX[1]" storage_index="58" tap_mode="probeonly" trigger_index="21" type="unknown"/>
-            <net data_index="59" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="screenX[2]" storage_index="59" tap_mode="probeonly" trigger_index="22" type="unknown"/>
-            <net data_index="60" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="screenX[3]" storage_index="60" tap_mode="probeonly" trigger_index="23" type="unknown"/>
-            <net data_index="61" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="screenX[4]" storage_index="61" tap_mode="probeonly" trigger_index="24" type="unknown"/>
-            <net data_index="62" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="screenX[5]" storage_index="62" tap_mode="probeonly" trigger_index="25" type="unknown"/>
-            <net data_index="63" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="screenX[6]" storage_index="63" tap_mode="probeonly" trigger_index="26" type="unknown"/>
-          </bus>
-          <bus name="screenY[0..4]" order="lsb_to_msb" state="collapse" type="register">
-            <net data_index="64" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="screenY[0]" storage_index="64" tap_mode="probeonly" trigger_index="37" type="unknown"/>
-            <net data_index="65" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="screenY[1]" storage_index="65" tap_mode="probeonly" trigger_index="38" type="unknown"/>
-            <net data_index="66" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="screenY[2]" storage_index="66" tap_mode="probeonly" trigger_index="39" type="unknown"/>
-            <net data_index="67" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="screenY[3]" storage_index="67" tap_mode="probeonly" trigger_index="40" type="unknown"/>
-            <net data_index="68" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="screenY[4]" storage_index="68" tap_mode="probeonly" trigger_index="41" type="unknown"/>
+            <net data_index="27" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[0]" storage_index="27" tap_mode="probeonly" trigger_index="0" type="unknown"/>
+            <net data_index="28" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[1]" storage_index="28" tap_mode="probeonly" trigger_index="1" type="unknown"/>
+            <net data_index="29" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[2]" storage_index="29" tap_mode="probeonly" trigger_index="2" type="unknown"/>
+            <net data_index="30" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[3]" storage_index="30" tap_mode="probeonly" trigger_index="3" type="unknown"/>
+            <net data_index="31" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[4]" storage_index="31" tap_mode="probeonly" trigger_index="4" type="unknown"/>
+            <net data_index="32" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[5]" storage_index="32" tap_mode="probeonly" trigger_index="5" type="unknown"/>
+            <net data_index="33" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[6]" storage_index="33" tap_mode="probeonly" trigger_index="6" type="unknown"/>
+            <net data_index="34" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[7]" storage_index="34" tap_mode="probeonly" trigger_index="7" type="unknown"/>
+            <net data_index="35" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[8]" storage_index="35" tap_mode="probeonly" trigger_index="8" type="unknown"/>
+            <net data_index="36" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[9]" storage_index="36" tap_mode="probeonly" trigger_index="9" type="unknown"/>
           </bus>
           <bus name="subX[0..2]" order="lsb_to_msb" type="register">
-            <net data_index="81" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subX[0]" storage_index="81" tap_mode="probeonly" trigger_index="44" type="unknown"/>
-            <net data_index="82" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subX[1]" storage_index="82" tap_mode="probeonly" trigger_index="45" type="unknown"/>
-            <net data_index="83" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subX[2]" storage_index="83" tap_mode="probeonly" trigger_index="46" type="unknown"/>
+            <net data_index="61" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subX[0]" storage_index="61" tap_mode="probeonly" trigger_index="44" type="unknown"/>
+            <net data_index="62" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subX[1]" storage_index="62" tap_mode="probeonly" trigger_index="45" type="unknown"/>
+            <net data_index="63" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subX[2]" storage_index="63" tap_mode="probeonly" trigger_index="46" type="unknown"/>
           </bus>
           <bus name="subY[0..3]" order="lsb_to_msb" type="register">
-            <net data_index="84" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[0]" storage_index="84" tap_mode="probeonly" trigger_index="47" type="unknown"/>
-            <net data_index="85" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[1]" storage_index="85" tap_mode="probeonly" trigger_index="48" type="unknown"/>
-            <net data_index="86" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[2]" storage_index="86" tap_mode="probeonly" trigger_index="49" type="unknown"/>
-            <net data_index="87" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[3]" storage_index="87" tap_mode="probeonly" trigger_index="50" type="unknown"/>
+            <net data_index="64" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[0]" storage_index="64" tap_mode="probeonly" trigger_index="47" type="unknown"/>
+            <net data_index="65" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[1]" storage_index="65" tap_mode="probeonly" trigger_index="48" type="unknown"/>
+            <net data_index="66" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[2]" storage_index="66" tap_mode="probeonly" trigger_index="49" type="unknown"/>
+            <net data_index="67" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[3]" storage_index="67" tap_mode="probeonly" trigger_index="50" type="unknown"/>
           </bus>
           <bus name="chr_rom_ctrl:c|pixel_addr[0..10]" order="lsb_to_msb" type="combinatorial">
             <net data_index="8" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|pixel_addr[0]" storage_index="8" tap_mode="probeonly" trigger_index="8" type="unknown"/>
@@ -423,18 +345,7 @@
             <net data_index="18" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|pixel_addr[9]" storage_index="18" tap_mode="probeonly" trigger_index="18" type="unknown"/>
             <net data_index="9" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|pixel_addr[10]" storage_index="9" tap_mode="probeonly" trigger_index="9" type="unknown"/>
           </bus>
-          <bus name="chr_val[0..7]" order="lsb_to_msb" type="combinatorial">
-            <net data_index="27" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[0]" storage_index="27" tap_mode="probeonly" trigger_index="27" type="unknown"/>
-            <net data_index="28" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[1]" storage_index="28" tap_mode="probeonly" trigger_index="28" type="unknown"/>
-            <net data_index="29" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[2]" storage_index="29" tap_mode="probeonly" trigger_index="29" type="unknown"/>
-            <net data_index="30" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[3]" storage_index="30" tap_mode="probeonly" trigger_index="30" type="unknown"/>
-            <net data_index="31" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[4]" storage_index="31" tap_mode="probeonly" trigger_index="31" type="unknown"/>
-            <net data_index="32" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[5]" storage_index="32" tap_mode="probeonly" trigger_index="32" type="unknown"/>
-            <net data_index="33" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[6]" storage_index="33" tap_mode="probeonly" trigger_index="33" type="unknown"/>
-            <net data_index="34" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[7]" storage_index="34" tap_mode="probeonly" trigger_index="34" type="unknown"/>
-          </bus>
-          <net data_index="56" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="pixel" storage_index="56" tap_mode="probeonly" trigger_index="36" type="unknown"/>
-          <bus name="chr_rom_ctrl:c|char_byte[0..7]" order="lsb_to_msb" type="combinatorial">
+          <bus name="chr_rom_ctrl:c|char_byte[0..7]" order="lsb_to_msb" state="collapse" type="combinatorial">
             <net data_index="0" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|char_byte[0]" storage_index="0" tap_mode="probeonly" trigger_index="0" type="unknown"/>
             <net data_index="1" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|char_byte[1]" storage_index="1" tap_mode="probeonly" trigger_index="1" type="unknown"/>
             <net data_index="2" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|char_byte[2]" storage_index="2" tap_mode="probeonly" trigger_index="2" type="unknown"/>
@@ -453,75 +364,61 @@
             <net data_index="24" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|pixel_mask[5]" storage_index="24" tap_mode="probeonly" trigger_index="24" type="unknown"/>
             <net data_index="25" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|pixel_mask[6]" storage_index="25" tap_mode="probeonly" trigger_index="25" type="unknown"/>
             <net data_index="26" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|pixel_mask[7]" storage_index="26" tap_mode="probeonly" trigger_index="26" type="unknown"/>
+          </bus>
+          <net data_index="48" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="pixel" storage_index="48" tap_mode="probeonly" trigger_index="36" type="unknown"/>
+          <bus name="screen_address[0..11]" order="lsb_to_msb" type="combinatorial">
+            <net data_index="49" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[0]" storage_index="49" tap_mode="probeonly" trigger_index="10" type="unknown"/>
+            <net data_index="52" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[1]" storage_index="52" tap_mode="probeonly" trigger_index="13" type="unknown"/>
+            <net data_index="53" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[2]" storage_index="53" tap_mode="probeonly" trigger_index="14" type="unknown"/>
+            <net data_index="54" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[3]" storage_index="54" tap_mode="probeonly" trigger_index="15" type="unknown"/>
+            <net data_index="55" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[4]" storage_index="55" tap_mode="probeonly" trigger_index="16" type="unknown"/>
+            <net data_index="56" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[5]" storage_index="56" tap_mode="probeonly" trigger_index="17" type="unknown"/>
+            <net data_index="57" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[6]" storage_index="57" tap_mode="probeonly" trigger_index="18" type="unknown"/>
+            <net data_index="58" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[7]" storage_index="58" tap_mode="probeonly" trigger_index="19" type="unknown"/>
+            <net data_index="59" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[8]" storage_index="59" tap_mode="probeonly" trigger_index="20" type="unknown"/>
+            <net data_index="60" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[9]" storage_index="60" tap_mode="probeonly" trigger_index="21" type="unknown"/>
+            <net data_index="50" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[10]" storage_index="50" tap_mode="probeonly" trigger_index="11" type="unknown"/>
+            <net data_index="51" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[11]" storage_index="51" tap_mode="probeonly" trigger_index="12" type="unknown"/>
           </bus>
         </data_view>
         <setup_view>
-          <bus name="screen_address[0..11]" order="lsb_to_msb" state="collapse" type="unknown">
-            <net data_index="69" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[0]" storage_index="69" tap_mode="probeonly" trigger_index="32" type="unknown"/>
-            <net data_index="72" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[1]" storage_index="72" tap_mode="probeonly" trigger_index="35" type="unknown"/>
-            <net data_index="73" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[2]" storage_index="73" tap_mode="probeonly" trigger_index="36" type="unknown"/>
-            <net data_index="74" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[3]" storage_index="74" tap_mode="probeonly" trigger_index="37" type="unknown"/>
-            <net data_index="75" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[4]" storage_index="75" tap_mode="probeonly" trigger_index="38" type="unknown"/>
-            <net data_index="76" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[5]" storage_index="76" tap_mode="probeonly" trigger_index="39" type="unknown"/>
-            <net data_index="77" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[6]" storage_index="77" tap_mode="probeonly" trigger_index="40" type="unknown"/>
-            <net data_index="78" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[7]" storage_index="78" tap_mode="probeonly" trigger_index="41" type="unknown"/>
-            <net data_index="79" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[8]" storage_index="79" tap_mode="probeonly" trigger_index="42" type="unknown"/>
-            <net data_index="80" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[9]" storage_index="80" tap_mode="probeonly" trigger_index="43" type="unknown"/>
-            <net data_index="70" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[10]" storage_index="70" tap_mode="probeonly" trigger_index="33" type="unknown"/>
-            <net data_index="71" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="screen_address[11]" storage_index="71" tap_mode="probeonly" trigger_index="34" type="unknown"/>
-          </bus>
+          <net data_index="69" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="vga_clk" storage_index="69" tap_mode="probeonly" type="unknown"/>
+          <net data_index="68" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="v_sync_o~reg0" storage_index="68" tap_mode="probeonly" trigger_index="42" type="unknown"/>
+          <net data_index="37" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="h_sync_o~reg0" storage_index="37" tap_mode="probeonly" trigger_index="35" type="unknown"/>
           <bus name="line[0..9]" order="lsb_to_msb" type="unknown">
-            <net data_index="46" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[0]" storage_index="46" tap_mode="probeonly" trigger_index="0" type="unknown"/>
-            <net data_index="47" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[1]" storage_index="47" tap_mode="probeonly" trigger_index="1" type="unknown"/>
-            <net data_index="48" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[2]" storage_index="48" tap_mode="probeonly" trigger_index="2" type="unknown"/>
-            <net data_index="49" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[3]" storage_index="49" tap_mode="probeonly" trigger_index="3" type="unknown"/>
-            <net data_index="50" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[4]" storage_index="50" tap_mode="probeonly" trigger_index="4" type="unknown"/>
-            <net data_index="51" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[5]" storage_index="51" tap_mode="probeonly" trigger_index="5" type="unknown"/>
-            <net data_index="52" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[6]" storage_index="52" tap_mode="probeonly" trigger_index="6" type="unknown"/>
-            <net data_index="53" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[7]" storage_index="53" tap_mode="probeonly" trigger_index="7" type="unknown"/>
-            <net data_index="54" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[8]" storage_index="54" tap_mode="probeonly" trigger_index="8" type="unknown"/>
-            <net data_index="55" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[9]" storage_index="55" tap_mode="probeonly" trigger_index="9" type="unknown"/>
+            <net data_index="38" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="high" name="line[0]" storage_index="38" tap_mode="probeonly" trigger_index="0" type="unknown"/>
+            <net data_index="39" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[1]" storage_index="39" tap_mode="probeonly" trigger_index="1" type="unknown"/>
+            <net data_index="40" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[2]" storage_index="40" tap_mode="probeonly" trigger_index="2" type="unknown"/>
+            <net data_index="41" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[3]" storage_index="41" tap_mode="probeonly" trigger_index="3" type="unknown"/>
+            <net data_index="42" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[4]" storage_index="42" tap_mode="probeonly" trigger_index="4" type="unknown"/>
+            <net data_index="43" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[5]" storage_index="43" tap_mode="probeonly" trigger_index="5" type="unknown"/>
+            <net data_index="44" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[6]" storage_index="44" tap_mode="probeonly" trigger_index="6" type="unknown"/>
+            <net data_index="45" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[7]" storage_index="45" tap_mode="probeonly" trigger_index="7" type="unknown"/>
+            <net data_index="46" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[8]" storage_index="46" tap_mode="probeonly" trigger_index="8" type="unknown"/>
+            <net data_index="47" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" level-0="low" name="line[9]" storage_index="47" tap_mode="probeonly" trigger_index="9" type="unknown"/>
           </bus>
           <bus name="h_pixel[0..9]" order="lsb_to_msb" state="collapse" type="unknown">
-            <net data_index="35" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[0]" storage_index="35" tap_mode="probeonly" trigger_index="0" type="unknown"/>
-            <net data_index="36" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[1]" storage_index="36" tap_mode="probeonly" trigger_index="1" type="unknown"/>
-            <net data_index="37" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[2]" storage_index="37" tap_mode="probeonly" trigger_index="2" type="unknown"/>
-            <net data_index="38" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[3]" storage_index="38" tap_mode="probeonly" trigger_index="3" type="unknown"/>
-            <net data_index="39" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[4]" storage_index="39" tap_mode="probeonly" trigger_index="4" type="unknown"/>
-            <net data_index="40" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[5]" storage_index="40" tap_mode="probeonly" trigger_index="5" type="unknown"/>
-            <net data_index="41" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[6]" storage_index="41" tap_mode="probeonly" trigger_index="6" type="unknown"/>
-            <net data_index="42" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[7]" storage_index="42" tap_mode="probeonly" trigger_index="7" type="unknown"/>
-            <net data_index="43" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[8]" storage_index="43" tap_mode="probeonly" trigger_index="8" type="unknown"/>
-            <net data_index="44" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[9]" storage_index="44" tap_mode="probeonly" trigger_index="9" type="unknown"/>
-          </bus>
-          <net data_index="88" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="v_sync_o~reg0" storage_index="88" tap_mode="probeonly" trigger_index="42" type="unknown"/>
-          <net data_index="45" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="h_sync_o~reg0" storage_index="45" tap_mode="probeonly" trigger_index="35" type="unknown"/>
-          <bus name="screenX[0..6]" order="lsb_to_msb" type="register">
-            <net data_index="57" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="screenX[0]" storage_index="57" tap_mode="probeonly" trigger_index="20" type="unknown"/>
-            <net data_index="58" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="screenX[1]" storage_index="58" tap_mode="probeonly" trigger_index="21" type="unknown"/>
-            <net data_index="59" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="screenX[2]" storage_index="59" tap_mode="probeonly" trigger_index="22" type="unknown"/>
-            <net data_index="60" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="screenX[3]" storage_index="60" tap_mode="probeonly" trigger_index="23" type="unknown"/>
-            <net data_index="61" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="screenX[4]" storage_index="61" tap_mode="probeonly" trigger_index="24" type="unknown"/>
-            <net data_index="62" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="screenX[5]" storage_index="62" tap_mode="probeonly" trigger_index="25" type="unknown"/>
-            <net data_index="63" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="screenX[6]" storage_index="63" tap_mode="probeonly" trigger_index="26" type="unknown"/>
-          </bus>
-          <bus name="screenY[0..4]" order="lsb_to_msb" state="collapse" type="register">
-            <net data_index="64" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="screenY[0]" storage_index="64" tap_mode="probeonly" trigger_index="37" type="unknown"/>
-            <net data_index="65" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="screenY[1]" storage_index="65" tap_mode="probeonly" trigger_index="38" type="unknown"/>
-            <net data_index="66" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="screenY[2]" storage_index="66" tap_mode="probeonly" trigger_index="39" type="unknown"/>
-            <net data_index="67" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="screenY[3]" storage_index="67" tap_mode="probeonly" trigger_index="40" type="unknown"/>
-            <net data_index="68" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="dont_care" name="screenY[4]" storage_index="68" tap_mode="probeonly" trigger_index="41" type="unknown"/>
+            <net data_index="27" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[0]" storage_index="27" tap_mode="probeonly" trigger_index="0" type="unknown"/>
+            <net data_index="28" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[1]" storage_index="28" tap_mode="probeonly" trigger_index="1" type="unknown"/>
+            <net data_index="29" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[2]" storage_index="29" tap_mode="probeonly" trigger_index="2" type="unknown"/>
+            <net data_index="30" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" level-0="low" name="h_pixel[3]" storage_index="30" tap_mode="probeonly" trigger_index="3" type="unknown"/>
+            <net data_index="31" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[4]" storage_index="31" tap_mode="probeonly" trigger_index="4" type="unknown"/>
+            <net data_index="32" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[5]" storage_index="32" tap_mode="probeonly" trigger_index="5" type="unknown"/>
+            <net data_index="33" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[6]" storage_index="33" tap_mode="probeonly" trigger_index="6" type="unknown"/>
+            <net data_index="34" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[7]" storage_index="34" tap_mode="probeonly" trigger_index="7" type="unknown"/>
+            <net data_index="35" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[8]" storage_index="35" tap_mode="probeonly" trigger_index="8" type="unknown"/>
+            <net data_index="36" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="h_pixel[9]" storage_index="36" tap_mode="probeonly" trigger_index="9" type="unknown"/>
           </bus>
           <bus name="subX[0..2]" order="lsb_to_msb" type="register">
-            <net data_index="81" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subX[0]" storage_index="81" tap_mode="probeonly" trigger_index="44" type="unknown"/>
-            <net data_index="82" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subX[1]" storage_index="82" tap_mode="probeonly" trigger_index="45" type="unknown"/>
-            <net data_index="83" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subX[2]" storage_index="83" tap_mode="probeonly" trigger_index="46" type="unknown"/>
+            <net data_index="61" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subX[0]" storage_index="61" tap_mode="probeonly" trigger_index="44" type="unknown"/>
+            <net data_index="62" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subX[1]" storage_index="62" tap_mode="probeonly" trigger_index="45" type="unknown"/>
+            <net data_index="63" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subX[2]" storage_index="63" tap_mode="probeonly" trigger_index="46" type="unknown"/>
           </bus>
           <bus name="subY[0..3]" order="lsb_to_msb" type="register">
-            <net data_index="84" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[0]" storage_index="84" tap_mode="probeonly" trigger_index="47" type="unknown"/>
-            <net data_index="85" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[1]" storage_index="85" tap_mode="probeonly" trigger_index="48" type="unknown"/>
-            <net data_index="86" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[2]" storage_index="86" tap_mode="probeonly" trigger_index="49" type="unknown"/>
-            <net data_index="87" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[3]" storage_index="87" tap_mode="probeonly" trigger_index="50" type="unknown"/>
+            <net data_index="64" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[0]" storage_index="64" tap_mode="probeonly" trigger_index="47" type="unknown"/>
+            <net data_index="65" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[1]" storage_index="65" tap_mode="probeonly" trigger_index="48" type="unknown"/>
+            <net data_index="66" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[2]" storage_index="66" tap_mode="probeonly" trigger_index="49" type="unknown"/>
+            <net data_index="67" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="subY[3]" storage_index="67" tap_mode="probeonly" trigger_index="50" type="unknown"/>
           </bus>
           <bus name="chr_rom_ctrl:c|pixel_addr[0..10]" order="lsb_to_msb" type="combinatorial">
             <net data_index="8" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|pixel_addr[0]" storage_index="8" tap_mode="probeonly" trigger_index="8" type="unknown"/>
@@ -536,18 +433,7 @@
             <net data_index="18" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|pixel_addr[9]" storage_index="18" tap_mode="probeonly" trigger_index="18" type="unknown"/>
             <net data_index="9" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|pixel_addr[10]" storage_index="9" tap_mode="probeonly" trigger_index="9" type="unknown"/>
           </bus>
-          <bus name="chr_val[0..7]" order="lsb_to_msb" type="combinatorial">
-            <net data_index="27" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[0]" storage_index="27" tap_mode="probeonly" trigger_index="27" type="unknown"/>
-            <net data_index="28" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[1]" storage_index="28" tap_mode="probeonly" trigger_index="28" type="unknown"/>
-            <net data_index="29" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[2]" storage_index="29" tap_mode="probeonly" trigger_index="29" type="unknown"/>
-            <net data_index="30" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[3]" storage_index="30" tap_mode="probeonly" trigger_index="30" type="unknown"/>
-            <net data_index="31" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[4]" storage_index="31" tap_mode="probeonly" trigger_index="31" type="unknown"/>
-            <net data_index="32" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[5]" storage_index="32" tap_mode="probeonly" trigger_index="32" type="unknown"/>
-            <net data_index="33" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[6]" storage_index="33" tap_mode="probeonly" trigger_index="33" type="unknown"/>
-            <net data_index="34" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_val[7]" storage_index="34" tap_mode="probeonly" trigger_index="34" type="unknown"/>
-          </bus>
-          <net data_index="56" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="pixel" storage_index="56" tap_mode="probeonly" trigger_index="36" type="unknown"/>
-          <bus name="chr_rom_ctrl:c|char_byte[0..7]" order="lsb_to_msb" type="combinatorial">
+          <bus name="chr_rom_ctrl:c|char_byte[0..7]" order="lsb_to_msb" state="collapse" type="combinatorial">
             <net data_index="0" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|char_byte[0]" storage_index="0" tap_mode="probeonly" trigger_index="0" type="unknown"/>
             <net data_index="1" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|char_byte[1]" storage_index="1" tap_mode="probeonly" trigger_index="1" type="unknown"/>
             <net data_index="2" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|char_byte[2]" storage_index="2" tap_mode="probeonly" trigger_index="2" type="unknown"/>
@@ -566,20 +452,35 @@
             <net data_index="24" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|pixel_mask[5]" storage_index="24" tap_mode="probeonly" trigger_index="24" type="unknown"/>
             <net data_index="25" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|pixel_mask[6]" storage_index="25" tap_mode="probeonly" trigger_index="25" type="unknown"/>
             <net data_index="26" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="chr_rom_ctrl:c|pixel_mask[7]" storage_index="26" tap_mode="probeonly" trigger_index="26" type="unknown"/>
+          </bus>
+          <net data_index="48" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="false" name="pixel" storage_index="48" tap_mode="probeonly" trigger_index="36" type="unknown"/>
+          <bus name="screen_address[0..11]" order="lsb_to_msb" type="combinatorial">
+            <net data_index="49" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[0]" storage_index="49" tap_mode="probeonly" trigger_index="10" type="unknown"/>
+            <net data_index="52" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[1]" storage_index="52" tap_mode="probeonly" trigger_index="13" type="unknown"/>
+            <net data_index="53" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[2]" storage_index="53" tap_mode="probeonly" trigger_index="14" type="unknown"/>
+            <net data_index="54" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[3]" storage_index="54" tap_mode="probeonly" trigger_index="15" type="unknown"/>
+            <net data_index="55" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[4]" storage_index="55" tap_mode="probeonly" trigger_index="16" type="unknown"/>
+            <net data_index="56" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[5]" storage_index="56" tap_mode="probeonly" trigger_index="17" type="unknown"/>
+            <net data_index="57" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[6]" storage_index="57" tap_mode="probeonly" trigger_index="18" type="unknown"/>
+            <net data_index="58" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[7]" storage_index="58" tap_mode="probeonly" trigger_index="19" type="unknown"/>
+            <net data_index="59" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[8]" storage_index="59" tap_mode="probeonly" trigger_index="20" type="unknown"/>
+            <net data_index="60" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[9]" storage_index="60" tap_mode="probeonly" trigger_index="21" type="unknown"/>
+            <net data_index="50" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[10]" storage_index="50" tap_mode="probeonly" trigger_index="11" type="unknown"/>
+            <net data_index="51" duplicate_name_allowed="false" is_data_input="true" is_node_valid="true" is_storage_input="true" is_trigger_input="true" name="screen_address[11]" storage_index="51" tap_mode="probeonly" trigger_index="12" type="unknown"/>
           </bus>
         </setup_view>
         <trigger_in_editor/>
         <trigger_out_editor/>
       </presentation>
-      <trigger attribute_mem_mode="false" gap_record="true" global_temp="1" name="trigger: 2019/12/31 14:53:12  #1" position="pre" power_up_trigger_mode="false" record_data_gap="true" segment_size="4096" storage_mode="off" storage_qualifier_disabled="no" storage_qualifier_port_is_pin="true" storage_qualifier_port_name="auto_stp_external_storage_qualifier" storage_qualifier_port_tap_mode="classic" trigger_type="circular">
+      <trigger attribute_mem_mode="false" gap_record="true" global_temp="1" name="trigger: 2019/12/31 21:16:45  #1" position="pre" power_up_trigger_mode="false" record_data_gap="true" segment_size="4096" storage_mode="off" storage_qualifier_disabled="no" storage_qualifier_port_is_pin="true" storage_qualifier_port_name="auto_stp_external_storage_qualifier" storage_qualifier_port_tap_mode="classic" trigger_type="circular">
         <power_up_trigger position="pre" storage_qualifier_disabled="no"/>
         <events use_custom_flow_control="no">
           <level editor="basic_or" enabled="yes" name="condition1" type="advanced">
             <power_up enabled="yes">
-              <power_up_expression><![CDATA[(('line[0..9]':({'line[0]','line[1]','line[2]','line[3]','line[4]','line[5]','line[6]','line[7]','line[8]','line[9]'}) == variable(b0000000000)) && variable(0)) || (mbpm('X',{'line[0]'}) && variable(1)) || (mbpm('X',{'line[1]'}) && variable(1)) || (mbpm('X',{'line[2]'}) && variable(1)) || (mbpm('X',{'line[3]'}) && variable(1)) || (mbpm('X',{'line[4]'}) && variable(1)) || (mbpm('X',{'line[5]'}) && variable(1)) || (mbpm('X',{'line[6]'}) && variable(1)) || (mbpm('X',{'line[7]'}) && variable(1)) || (mbpm('X',{'line[8]'}) && variable(1)) || (mbpm('X',{'line[9]'}) && variable(1))]]>
+              <power_up_expression><![CDATA[(('line[0..9]':({'line[0]','line[1]','line[2]','line[3]','line[4]','line[5]','line[6]','line[7]','line[8]','line[9]'}) == variable(b0000000000)) && variable(0)) || (mbpm('X',{'line[0]'}) && variable(1)) || (mbpm('X',{'line[1]'}) && variable(1)) || (mbpm('X',{'line[2]'}) && variable(1)) || (mbpm('X',{'line[3]'}) && variable(1)) || (mbpm('X',{'line[4]'}) && variable(1)) || (mbpm('X',{'line[5]'}) && variable(1)) || (mbpm('X',{'line[6]'}) && variable(1)) || (mbpm('X',{'line[7]'}) && variable(1)) || (mbpm('X',{'line[8]'}) && variable(1)) || (mbpm('X',{'line[9]'}) && variable(1)) || (('screen_address[0..11]':({'screen_address[0]','screen_address[1]','screen_address[2]','screen_address[3]','screen_address[4]','screen_address[5]','screen_address[6]','screen_address[7]','screen_address[8]','screen_address[9]','screen_address[10]','screen_address[11]'}) == variable(b000000000000)) && variable(0)) || (mbpm('X',{'screen_address[0]'}) && variable(1)) || (mbpm('X',{'screen_address[1]'}) && variable(1)) || (mbpm('X',{'screen_address[2]'}) && variable(1)) || (mbpm('X',{'screen_address[3]'}) && variable(1)) || (mbpm('X',{'screen_address[4]'}) && variable(1)) || (mbpm('X',{'screen_address[5]'}) && variable(1)) || (mbpm('X',{'screen_address[6]'}) && variable(1)) || (mbpm('X',{'screen_address[7]'}) && variable(1)) || (mbpm('X',{'screen_address[8]'}) && variable(1)) || (mbpm('X',{'screen_address[9]'}) && variable(1)) || (mbpm('X',{'screen_address[10]'}) && variable(1)) || (mbpm('X',{'screen_address[11]'}) && variable(1))]]>
               </power_up_expression>
             </power_up>
-            <expression><![CDATA[(('line[0..9]':({'line[0]','line[1]','line[2]','line[3]','line[4]','line[5]','line[6]','line[7]','line[8]','line[9]'}) == variable(b0000000000)) && variable(1)) || (mbpm('0',{'line[0]'}) && variable(0)) || (mbpm('0',{'line[1]'}) && variable(0)) || (mbpm('0',{'line[2]'}) && variable(0)) || (mbpm('0',{'line[3]'}) && variable(0)) || (mbpm('0',{'line[4]'}) && variable(0)) || (mbpm('0',{'line[5]'}) && variable(0)) || (mbpm('0',{'line[6]'}) && variable(0)) || (mbpm('0',{'line[7]'}) && variable(0)) || (mbpm('0',{'line[8]'}) && variable(0)) || (mbpm('0',{'line[9]'}) && variable(0))]]>
+            <expression><![CDATA[(('line[0..9]':({'line[0]','line[1]','line[2]','line[3]','line[4]','line[5]','line[6]','line[7]','line[8]','line[9]'}) == variable(b1000000000)) && variable(1)) || (mbpm('1',{'line[0]'}) && variable(0)) || (mbpm('0',{'line[1]'}) && variable(0)) || (mbpm('0',{'line[2]'}) && variable(0)) || (mbpm('0',{'line[3]'}) && variable(0)) || (mbpm('0',{'line[4]'}) && variable(0)) || (mbpm('0',{'line[5]'}) && variable(0)) || (mbpm('0',{'line[6]'}) && variable(0)) || (mbpm('0',{'line[7]'}) && variable(0)) || (mbpm('0',{'line[8]'}) && variable(0)) || (mbpm('0',{'line[9]'}) && variable(0)) || (('screen_address[0..11]':({'screen_address[0]','screen_address[1]','screen_address[2]','screen_address[3]','screen_address[4]','screen_address[5]','screen_address[6]','screen_address[7]','screen_address[8]','screen_address[9]','screen_address[10]','screen_address[11]'}) == variable(b000000000000)) && variable(0)) || (mbpm('X',{'screen_address[0]'}) && variable(0)) || (mbpm('X',{'screen_address[1]'}) && variable(0)) || (mbpm('X',{'screen_address[2]'}) && variable(0)) || (mbpm('X',{'screen_address[3]'}) && variable(0)) || (mbpm('X',{'screen_address[4]'}) && variable(0)) || (mbpm('X',{'screen_address[5]'}) && variable(0)) || (mbpm('X',{'screen_address[6]'}) && variable(0)) || (mbpm('X',{'screen_address[7]'}) && variable(0)) || (mbpm('X',{'screen_address[8]'}) && variable(0)) || (mbpm('X',{'screen_address[9]'}) && variable(0)) || (mbpm('X',{'screen_address[10]'}) && variable(0)) || (mbpm('X',{'screen_address[11]'}) && variable(0))]]>
             </expression>
             <op_node>
               <op_node left="809" top="236" type="Advanced Trigger Level Result"/>
@@ -587,8 +488,8 @@
           </level>
         </events>
         <storage_qualifier_events>
-          <transitional>00000000000000000000000000000000000000000000001111111111000000000000000000000000000000000
-            <pwr_up_transitional>00000000000000000000000000000000000000000000001111111111000000000000000000000000000000000</pwr_up_transitional>
+          <transitional>0000000000000000000000000000000000000011111111110111111111111000000000
+            <pwr_up_transitional>0000000000000000000000000000000000000011111111110111111111111000000000</pwr_up_transitional>
           </transitional>
           <storage_qualifier_level type="basic">
             <power_up>
