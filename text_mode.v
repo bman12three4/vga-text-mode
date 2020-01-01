@@ -1,9 +1,9 @@
 module text_mode (
 		input clk,
 		
-		output reg [3:0] r_vga_o,
-		output reg [3:0] g_vga_o,
-		output reg [3:0] b_vga_o,
+		(*keep*) output [3:0] r_vga_o /*synthesis keep */,
+		(*keep*) output [3:0] g_vga_o /*synthesis keep */,
+		(*keep*) output [3:0] b_vga_o /*synthesis keep */,
 		
 		output reg v_sync_o,
 		output reg h_sync_o
@@ -34,8 +34,10 @@ module text_mode (
 	
 	assign screen_address [6:0] = screenX;
 	assign screen_address [11:7] = screenY;
-
 	
+	assign r_vga_o [0] = (pixel & (h_pixel < 640)), r_vga_o [1] = (pixel & (h_pixel < 640)), r_vga_o [2] = (pixel & (h_pixel < 640)), r_vga_o [3] = (pixel & (h_pixel < 640));
+	assign g_vga_o [0] = (pixel & (h_pixel < 640)), g_vga_o [1] = (pixel & (h_pixel < 640)), g_vga_o [2] = (pixel & (h_pixel < 640)), g_vga_o [3] = (pixel & (h_pixel < 640));
+	assign b_vga_o [0] = (pixel & (h_pixel < 640)), b_vga_o [1] = (pixel & (h_pixel < 640)), b_vga_o [2] = (pixel & (h_pixel < 640)), b_vga_o [3] = (pixel & (h_pixel < 640));
 
 	vga_clk a (
 		.inclk0 (clk),
@@ -60,18 +62,7 @@ module text_mode (
 	
 	always @(posedge vga_clk) begin
 
-		if (h_pixel < 640) begin
-			
-			if (pixel == 1) begin
-				r_vga_o <= 4'b1111;
-				g_vga_o <= 4'b1111;
-				b_vga_o <= 4'b1111;
-			end
-			else begin
-				r_vga_o <= 4'b0000;
-				g_vga_o <= 4'b0000;
-				b_vga_o <= 4'b0000;
-			end
+		if (h_pixel < 639) begin
 			h_pixel <= h_pixel + 10'b1;
 			
 			if (subX < 7) begin
@@ -83,9 +74,6 @@ module text_mode (
 			end
 		end
 		else if (h_pixel < 660) begin
-			r_vga_o <= 0;
-			r_vga_o <= 0;
-			r_vga_o <= 0;
 			h_pixel <= h_pixel + 10'b1;
 			screenX <= 100;
 		end
