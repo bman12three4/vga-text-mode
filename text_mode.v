@@ -1,5 +1,12 @@
 module text_mode (
 		input clk,
+		input clk_ext1,	// External 1 MHz clock
+
+		input cs,			// Chip Select (Active Low)
+		input [3:0] rs,	// Register select
+		input wren,			// Write enable (Active low)
+		input [7:0] data_in,	// Data bus
+
 		
 		(*keep*) output [3:0] r_vga_o /*synthesis keep */,
 		(*keep*) output [3:0] g_vga_o /*synthesis keep */,
@@ -12,10 +19,8 @@ module text_mode (
 	
 	(* keep *) wire vga_clk;
 	
-	wire [11:0] screen_address /*synthesis keep */;
+	wire [7:0] screen_address /*synthesis keep */;
 
-	
-	reg wren_m;
 	
 	reg [6:0] screenX/*synthesis noprune */; //These are the 80x25 subacters
 	reg [4:0] screenY/*synthesis noprune */;
@@ -30,10 +35,25 @@ module text_mode (
 	
 	reg [7:0] user_char;
 	
+	wire chipclk;
+	
+	assign chipclk = clk_ext1 & ~cs;
+	
+	reg [7:0] int_reg [3:0]; // 16 8 bit registers
+	
+	reg [3:0] curr_addr;		// Current address
+	
+	wire [7:0] ram_out;
+	
+	wire ram_wren;
+	
+	assign ram_wren = (curr_addr == 4'b1) ? 1'b1 : 1'b0;
+
+	
 	(* keep *) wire pixel;
 	
 	assign screen_address [6:0] = screenX;
-	assign screen_address [11:7] = screenY;
+	assign screen_address [7] = screenY;
 	
 	assign r_vga_o [0] = (pixel & (h_pixel < 640)), r_vga_o [1] = (pixel & (h_pixel < 640)), r_vga_o [2] = (pixel & (h_pixel < 640)), r_vga_o [3] = (pixel & (h_pixel < 640));
 	assign g_vga_o [0] = (pixel & (h_pixel < 640)), g_vga_o [1] = (pixel & (h_pixel < 640)), g_vga_o [2] = (pixel & (h_pixel < 640)), g_vga_o [3] = (pixel & (h_pixel < 640));
@@ -44,11 +64,12 @@ module text_mode (
 		.c0 (vga_clk)
 	);
 	
-	screen_ram b (
-		.address (screen_address),
+	screen_ram b  (
+		.rdaddress (screen_address),
+		.wraddress (int_reg[0]),
 		.clock (clk),
-		.data (user_char),
-		.wren (wren_m),
+		.data (int_reg[1]),
+		.wren (ram_wren),
 		.q (chr_val)
 	);
 	
@@ -59,6 +80,14 @@ module text_mode (
 		.row (subY),
 		.pixel (pixel)
 	);
+	
+	always @ (posedge chipclk) begin
+			curr_addr = rs;
+	end
+	
+	always @ (negedge chipclk) begin		// Main code should run here, after data has been recieved
+			int_reg[curr_addr] = data_in;
+	end
 	
 	always @(posedge vga_clk) begin
 
