@@ -5,7 +5,7 @@ module text_mode (
 		input cs,			// Chip Select (Active Low)
 		input [3:0] rs,	// Register select
 		input wren,			// Write enable (Active low)
-		input [7:0] data_in,	// Data bus
+		inout [7:0] data_bi,	// Data bus
 
 		
 		(*keep*) output [3:0] r_vga_o /*synthesis keep */,
@@ -36,18 +36,23 @@ module text_mode (
 	reg [7:0] user_char;
 	
 	wire chipclk;
-	
 	assign chipclk = clk_ext1 & ~cs;
 	
-	reg [7:0] int_reg [3:0]; // 16 8 bit registers
+	wire [7:0] data_in;
+	wire [7:0] data_out;
 	
+	assign data_bi = (wren & chipclk) ? data_out : 8'bZ;
+	assign data_in = data_bi;
+
+	
+	reg [7:0] int_reg [3:0]; // 16 8 bit registers
 	reg [3:0] curr_addr;		// Current address
 	
-	wire [7:0] ram_out;
-	
 	wire ram_wren;
+	assign ram_wren = (curr_addr == 4'b1) ? ~wren : 1'b0;
 	
-	assign ram_wren = (curr_addr == 4'b1) ? 1'b1 : 1'b0;
+	assign data_out = (curr_addr == 4'b1) ? chr_val : int_reg[curr_addr];
+
 
 	
 	(* keep *) wire pixel;
