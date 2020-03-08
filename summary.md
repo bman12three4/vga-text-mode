@@ -21,11 +21,11 @@ $03 - ADDRH
 ### Control Register
 GM2 GM1 GM0 AI3 AI2 AI1 AI0 EN
  - GM2-0 Selects graphics mode
-   * 0 is standard text
-   * More modes to be added
+   - 0 is standard text
+   - More modes to be added
  
  - AI3-0 Sets auto increment value
-   * Always added to ADDRL after every read or write operation
+   - Always added to ADDRL after every read or write operation
    
  - EN Enables or disables the display
-   * 0 will turn off display
+   - 0 will turn off display
