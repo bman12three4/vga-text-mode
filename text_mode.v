@@ -53,16 +53,19 @@ module text_mode (
 	
 	assign data_out = (curr_addr == 4'b1) ? chr_val : int_reg[curr_addr];
 
-
+	wire enable
+	assign enable = int_reg[0][0];
+	
+	wire [3:0] 
 	
 	(* keep *) wire pixel;
 	
 	assign screen_address [6:0] = screenX;
 	assign screen_address [7] = screenY;
 	
-	assign r_vga_o [0] = (pixel & (h_pixel < 640)), r_vga_o [1] = (pixel & (h_pixel < 640)), r_vga_o [2] = (pixel & (h_pixel < 640)), r_vga_o [3] = (pixel & (h_pixel < 640));
-	assign g_vga_o [0] = (pixel & (h_pixel < 640)), g_vga_o [1] = (pixel & (h_pixel < 640)), g_vga_o [2] = (pixel & (h_pixel < 640)), g_vga_o [3] = (pixel & (h_pixel < 640));
-	assign b_vga_o [0] = (pixel & (h_pixel < 640)), b_vga_o [1] = (pixel & (h_pixel < 640)), b_vga_o [2] = (pixel & (h_pixel < 640)), b_vga_o [3] = (pixel & (h_pixel < 640));
+	assign r_vga_o [0] = (enable & pixel & (h_pixel < 640)), r_vga_o [1] = (enable & pixel & (h_pixel < 640)), r_vga_o [2] = (enable & pixel & (h_pixel < 640)), r_vga_o [3] = (enable & pixel & (h_pixel < 640));
+	assign g_vga_o [0] = (enable & pixel & (h_pixel < 640)), g_vga_o [1] = (enable & pixel & (h_pixel < 640)), g_vga_o [2] = (enable & pixel & (h_pixel < 640)), g_vga_o [3] = (enable & pixel & (h_pixel < 640));
+	assign b_vga_o [0] = (enable & pixel & (h_pixel < 640)), b_vga_o [1] = (enable & pixel & (h_pixel < 640)), b_vga_o [2] = (enable & pixel & (h_pixel < 640)), b_vga_o [3] = (enable & pixel & (h_pixel < 640));
 
 	vga_clk a (
 		.inclk0 (clk),
