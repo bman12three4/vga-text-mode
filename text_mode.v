@@ -28,6 +28,14 @@ module text_mode (
 	
 	(* keep *) wire [7:0] chr_val;
 	
+	wire [3:0] r_pixel;
+	wire [3:0] g_pixel;
+	wire [3:0] b_pixel;
+	
+	assign r_pixel = chr_val [3:0];
+	assign g_pixel = chr_val [4:1];
+	assign b_pixel = chr_val [6:3];
+	
 	reg [7:0] user_char;
 	
 	(* keep *) wire pixel;
@@ -35,9 +43,13 @@ module text_mode (
 	assign screen_address [6:0] = screenX;
 	assign screen_address [11:7] = screenY;
 	
-	assign r_vga_o [0] = (pixel & (h_pixel < 640)), r_vga_o [1] = (pixel & (h_pixel < 640)), r_vga_o [2] = (pixel & (h_pixel < 640)), r_vga_o [3] = (pixel & (h_pixel < 640));
-	assign g_vga_o [0] = (pixel & (h_pixel < 640)), g_vga_o [1] = (pixel & (h_pixel < 640)), g_vga_o [2] = (pixel & (h_pixel < 640)), g_vga_o [3] = (pixel & (h_pixel < 640));
-	assign b_vga_o [0] = (pixel & (h_pixel < 640)), b_vga_o [1] = (pixel & (h_pixel < 640)), b_vga_o [2] = (pixel & (h_pixel < 640)), b_vga_o [3] = (pixel & (h_pixel < 640));
+	assign r_vga_o = (pixel & (h_pixel < 640)) ? r_pixel : 4'b0;
+	assign g_vga_o = (pixel & (h_pixel < 640)) ? g_pixel : 4'b0;
+	assign b_vga_o = (pixel & (h_pixel < 640)) ? b_pixel : 4'b0;
+	
+	//assign r_vga_o [0] = (pixel & (h_pixel < 640)), r_vga_o [1] = (pixel & (h_pixel < 640)), r_vga_o [2] = (pixel & (h_pixel < 640)), r_vga_o [3] = (pixel & (h_pixel < 640));
+	//assign g_vga_o [0] = (pixel & (h_pixel < 640)), g_vga_o [1] = (pixel & (h_pixel < 640)), g_vga_o [2] = (pixel & (h_pixel < 640)), g_vga_o [3] = (pixel & (h_pixel < 640));
+	//assign b_vga_o [0] = (pixel & (h_pixel < 640)), b_vga_o [1] = (pixel & (h_pixel < 640)), b_vga_o [2] = (pixel & (h_pixel < 640)), b_vga_o [3] = (pixel & (h_pixel < 640));
 
 	vga_clk a (
 		.inclk0 (clk),
