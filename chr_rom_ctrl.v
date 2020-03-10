@@ -7,7 +7,9 @@ module chr_rom_ctrl (
 		input [2:0] col,
 		input [3:0] row,
 		
-		output pixel
+		output [3:0] r_pixel,
+		output [3:0] g_pixel,
+		output [3:0] b_pixel
 	);
 	
 	(* keep *) wire [10:0] pixel_addr;

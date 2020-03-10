@@ -22,6 +22,7 @@ $03 - ADDRH
 GM2 GM1 GM0 AI3 AI2 AI1 AI0 EN
  - GM2-0 Selects graphics mode
    - 0 is standard text
+   - 1 is color text. 
    - More modes to be added
  
  - AI3-0 Sets auto increment value
@@ -29,3 +30,13 @@ GM2 GM1 GM0 AI3 AI2 AI1 AI0 EN
    
  - EN Enables or disables the display
    - 0 will turn off display
+   
+## Display Modes
+### Standard Text
+Standard text is 80x25 screen with 8x16 characters in black and white only.
+Characters are stored as ASCII values in memory.
+
+### Color Text
+Color text is the same size and resolution as standard text. Characters are
+stored as ASCII values followed by color information as RRGGBBAA. R, G, B are
+2 bit color values, A selects from 4 background colors, Black, white, red, blue.
