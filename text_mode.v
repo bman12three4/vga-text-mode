@@ -15,7 +15,8 @@ module text_mode (
 	wire [11:0] screen_address /*synthesis keep */;
 
 	
-	reg wren_m;
+	reg wren_ms;
+	reg wren_mc;
 	
 	reg [6:0] screenX/*synthesis noprune */; //These are the 80x25 subacters
 	reg [4:0] screenY/*synthesis noprune */;
@@ -26,17 +27,19 @@ module text_mode (
 	reg [9:0] h_pixel;
 	reg [9:0] line;
 	
-	(* keep *) wire [7:0] chr_val;
+	wire [7:0] chr_val;
+	wire [7:0] colr_val;
 	
 	wire [3:0] r_pixel;
 	wire [3:0] g_pixel;
 	wire [3:0] b_pixel;
 	
-	assign r_pixel = chr_val [3:0];
-	assign g_pixel = chr_val [4:1];
-	assign b_pixel = chr_val [6:3];
+	assign r_pixel [3:2] = colr_val [7:6];
+	assign g_pixel [3:2] = colr_val [5:4];
+	assign b_pixel [3:2] = colr_val [3:2];
 	
 	reg [7:0] user_char;
+	reg [7:0] user_colr;
 	
 	(* keep *) wire pixel;
 	
@@ -60,11 +63,19 @@ module text_mode (
 		.address (screen_address),
 		.clock (clk),
 		.data (user_char),
-		.wren (wren_m),
+		.wren (wren_ms),
 		.q (chr_val)
 	);
 	
-	chr_rom_ctrl c (
+	color_ram c (
+		.address (screen_address),
+		.clock (clk),
+		.data (user_colr),
+		.wren (wren_mc),
+		.q (colr_val)
+	);
+	
+	chr_rom_ctrl d (
 		.clk (clk),
 		.chr_val (chr_val),
 		.col (subX),
