@@ -35,22 +35,17 @@ endmodule //chr_rom_ctrl
 
 module mux_3to8 (
 	input [3:0] in,
-	output reg [7:0] out
+	output [7:0] out
 	);
 	
-	always @(in)
-		case (in)   //case statement. Check all the 8 combinations.
-			3'b000 : out = 8'b00000001;
-			3'b001 : out = 8'b00000010;
-			3'b010 : out = 8'b00000100;
-			3'b011 : out = 8'b00001000;
-			3'b100 : out = 8'b00010000;
-			3'b101 : out = 8'b00100000;
-			3'b110 : out = 8'b01000000;
-			3'b111 : out = 8'b10000000;
-			//To make sure that latches are not created create a default value for output.
-			default : out = 8'b00000000; 
-		endcase
+	assign out [0] = (in == 3'b000) ? 1'b1 : 1'b0;
+	assign out [1] = (in == 3'b001) ? 1'b1 : 1'b0;
+	assign out [2] = (in == 3'b010) ? 1'b1 : 1'b0;
+	assign out [3] = (in == 3'b011) ? 1'b1 : 1'b0;
+	assign out [4] = (in == 3'b100) ? 1'b1 : 1'b0;
+	assign out [5] = (in == 3'b101) ? 1'b1 : 1'b0;
+	assign out [6] = (in == 3'b110) ? 1'b1 : 1'b0;
+	assign out [7] = (in == 3'b111) ? 1'b1 : 1'b0;
 
 	
 endmodule //mux_3to8
