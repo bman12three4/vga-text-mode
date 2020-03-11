@@ -11,6 +11,7 @@ module text_mode (
 	);
 	
 	(* keep *) wire vga_clk;
+	wire f_clock;
 	
 	wire [11:0] screen_address /*synthesis keep */;
 
@@ -27,7 +28,7 @@ module text_mode (
 	reg [9:0] h_pixel;
 	reg [9:0] line;
 	
-	wire [7:0] pixel_mask;
+	(*keep *) wire [7:0] pixel_mask; /* preserve */
 	assign pixel_mask [0] = (subX == 3'd0) ? 1'b1 : 1'b0,
 			 pixel_mask [1] = (subX == 3'd1) ? 1'b1 : 1'b0,
 			 pixel_mask [2] = (subX == 3'd2) ? 1'b1 : 1'b0,
@@ -91,6 +92,11 @@ module text_mode (
 	//assign g_vga_o [0] = (pixel & (h_pixel < 640)), g_vga_o [1] = (pixel & (h_pixel < 640)), g_vga_o [2] = (pixel & (h_pixel < 640)), g_vga_o [3] = (pixel & (h_pixel < 640));
 	//assign b_vga_o [0] = (pixel & (h_pixel < 640)), b_vga_o [1] = (pixel & (h_pixel < 640)), b_vga_o [2] = (pixel & (h_pixel < 640)), b_vga_o [3] = (pixel & (h_pixel < 640));
 
+	fclock z (
+		.inclk0 (clk),
+		.c0 (fclock)
+	);
+	
 	vga_clk a (
 		.inclk0 (clk),
 		.c0 (vga_clk)
@@ -98,7 +104,7 @@ module text_mode (
 	
 	screen_ram b (
 		.address (screen_address),
-		.clock (clk),
+		.clock (fclock),
 		.data (user_char),
 		.wren (wren_ms),
 		.q (chr_val)
@@ -106,20 +112,26 @@ module text_mode (
 	
 	color_ram c (
 		.address (screen_address),
-		.clock (clk),
+		.clock (fclock),
 		.data (user_colr),
 		.wren (wren_mc),
 		.q (colr_val)
 	);
 	
-	chr_rom_ctrl d (
-		.clk (clk),
-		.chr_val (chr_val),
-		.col (subX),
-		.row (subY),
-		.pixel_mask (pixel_mask),
-		.pixel (pixel)
+	wire [10:0] pixel_addr;
+	wire [7:0] char_byte;
+	
+	assign pixel_addr = ((chr_val - 32) << 4) + subY;   //so for the "1", thats 21h, or 33. 33-32 is 1, 
+																		//1<<4 is 16, so this should go from 16 to 31, or 10h to 1f
+	
+	chr_rom d (
+		.address (pixel_addr),
+		.clock (fclock),
+		.q (char_byte)
 	);
+	
+			 
+	assign pixel = (char_byte & pixel_mask) >> subX; // so if char_byte is 00011000, pixel mask is 00010000, so the first is 00010000
 	
 	always @(posedge vga_clk) begin
 
