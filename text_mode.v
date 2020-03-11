@@ -27,6 +27,16 @@ module text_mode (
 	reg [9:0] h_pixel;
 	reg [9:0] line;
 	
+	wire [7:0] pixel_mask;
+	assign pixel_mask [0] = (subX == 3'd0) ? 1'b1 : 1'b0,
+			 pixel_mask [1] = (subX == 3'd1) ? 1'b1 : 1'b0,
+			 pixel_mask [2] = (subX == 3'd2) ? 1'b1 : 1'b0,
+			 pixel_mask [3] = (subX == 3'd3) ? 1'b1 : 1'b0,
+			 pixel_mask [4] = (subX == 3'd4) ? 1'b1 : 1'b0,
+			 pixel_mask [5] = (subX == 3'd5) ? 1'b1 : 1'b0,
+			 pixel_mask [6] = (subX == 3'd6) ? 1'b1 : 1'b0,
+			 pixel_mask [7] = (subX == 3'd7) ? 1'b1 : 1'b0;
+	
 	wire [7:0] chr_val;
 	wire [7:0] colr_val;
 	
@@ -70,10 +80,13 @@ module text_mode (
 	assign g_pixel = pixel ? g_fgnd : g_bkgnd;
 	assign b_pixel = pixel ? b_fgnd : b_bkgnd;
 	
+	/*
 	assign r_vga_o = (h_pixel < 640) ? r_pixel : 4'b0000;
 	assign g_vga_o = (h_pixel < 640) ? g_pixel : 4'b0000;
 	assign b_vga_o = (h_pixel < 640) ? b_pixel : 4'b0000;
+	*/
 	
+	assign r_vga_o [3] = pixel & (h_pixel < 640);
 	//assign r_vga_o [0] = (pixel & (h_pixel < 640)), r_vga_o [1] = (pixel & (h_pixel < 640)), r_vga_o [2] = (pixel & (h_pixel < 640)), r_vga_o [3] = (pixel & (h_pixel < 640));
 	//assign g_vga_o [0] = (pixel & (h_pixel < 640)), g_vga_o [1] = (pixel & (h_pixel < 640)), g_vga_o [2] = (pixel & (h_pixel < 640)), g_vga_o [3] = (pixel & (h_pixel < 640));
 	//assign b_vga_o [0] = (pixel & (h_pixel < 640)), b_vga_o [1] = (pixel & (h_pixel < 640)), b_vga_o [2] = (pixel & (h_pixel < 640)), b_vga_o [3] = (pixel & (h_pixel < 640));
@@ -104,6 +117,7 @@ module text_mode (
 		.chr_val (chr_val),
 		.col (subX),
 		.row (subY),
+		.pixel_mask (pixel_mask),
 		.pixel (pixel)
 	);
 	
