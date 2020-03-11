@@ -81,13 +81,11 @@ module text_mode (
 	assign g_pixel = pixel ? g_fgnd : g_bkgnd;
 	assign b_pixel = pixel ? b_fgnd : b_bkgnd;
 	
-	/*
+	
 	assign r_vga_o = (h_pixel < 640) ? r_pixel : 4'b0000;
 	assign g_vga_o = (h_pixel < 640) ? g_pixel : 4'b0000;
 	assign b_vga_o = (h_pixel < 640) ? b_pixel : 4'b0000;
-	*/
 	
-	assign r_vga_o [3] = pixel & (h_pixel < 640);
 	//assign r_vga_o [0] = (pixel & (h_pixel < 640)), r_vga_o [1] = (pixel & (h_pixel < 640)), r_vga_o [2] = (pixel & (h_pixel < 640)), r_vga_o [3] = (pixel & (h_pixel < 640));
 	//assign g_vga_o [0] = (pixel & (h_pixel < 640)), g_vga_o [1] = (pixel & (h_pixel < 640)), g_vga_o [2] = (pixel & (h_pixel < 640)), g_vga_o [3] = (pixel & (h_pixel < 640));
 	//assign b_vga_o [0] = (pixel & (h_pixel < 640)), b_vga_o [1] = (pixel & (h_pixel < 640)), b_vga_o [2] = (pixel & (h_pixel < 640)), b_vga_o [3] = (pixel & (h_pixel < 640));
