@@ -1,9 +1,9 @@
 module text_mode (
 		input clk,
 		
-		(*keep*) output [3:0] r_vga_o /*synthesis keep */,
-		(*keep*) output [3:0] g_vga_o /*synthesis keep */,
-		(*keep*) output [3:0] b_vga_o /*synthesis keep */,
+		output [3:0] r_vga_o,
+		output [3:0] g_vga_o,
+		output [3:0] b_vga_o,
 		
 		output reg v_sync_o,
 		output reg h_sync_o
@@ -11,7 +11,7 @@ module text_mode (
 	);
 	
 	(* keep *) wire vga_clk;
-	wire f_clock;
+	wire fclock;
 	
 	wire [11:0] screen_address /*synthesis keep */;
 
@@ -29,14 +29,7 @@ module text_mode (
 	reg [9:0] line;
 	
 	(*keep *) wire [7:0] pixel_mask; /* preserve */
-	assign pixel_mask [0] = (subX == 3'd0) ? 1'b1 : 1'b0,
-			 pixel_mask [1] = (subX == 3'd1) ? 1'b1 : 1'b0,
-			 pixel_mask [2] = (subX == 3'd2) ? 1'b1 : 1'b0,
-			 pixel_mask [3] = (subX == 3'd3) ? 1'b1 : 1'b0,
-			 pixel_mask [4] = (subX == 3'd4) ? 1'b1 : 1'b0,
-			 pixel_mask [5] = (subX == 3'd5) ? 1'b1 : 1'b0,
-			 pixel_mask [6] = (subX == 3'd6) ? 1'b1 : 1'b0,
-			 pixel_mask [7] = (subX == 3'd7) ? 1'b1 : 1'b0;
+	assign pixel_mask = (8'b1 << subX);
 	
 	wire [7:0] chr_val;
 	wire [7:0] colr_val;
