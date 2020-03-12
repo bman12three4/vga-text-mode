@@ -13,14 +13,14 @@ module text_mode (
 	(* keep *) wire vga_clk;
 	wire fclock;
 	
-	wire [11:0] screen_address /*synthesis keep */;
+	wire [11:0] screen_address;
 
 	
 	reg wren_ms;
 	reg wren_mc;
 	
-	reg [6:0] screenX/*synthesis noprune */; //These are the 80x25 subacters
-	reg [4:0] screenY/*synthesis noprune */;
+	reg [6:0] screenX; //These are the 80x25 subacters
+	reg [4:0] screenY;
 	
 	reg [2:0] subX;	 //These are the 9x16 pixel subacters
 	reg [3:0] subY;
@@ -31,34 +31,10 @@ module text_mode (
 	wire [7:0] chr_val;
 	wire [7:0] colr_val;
 	
-	wire [3:0] r_fgnd;
-	wire [3:0] g_fgnd;
-	wire [3:0] b_fgnd;
-	
-	assign r_fgnd [3] = colr_val [6];
-	assign g_fgnd [3] = colr_val [5];
-	assign b_fgnd [3] = colr_val [4];
-	
-	assign r_fgnd [2:0] = (colr_val [7] & r_fgnd [3]) ? 3'b111 : 3'b000;
-	assign g_fgnd [2:0] = (colr_val [7] & g_fgnd [3]) ? 3'b111 : 3'b000;
-	assign b_fgnd [2:0] = (colr_val [7] & b_fgnd [3]) ? 3'b111 : 3'b000;
-	
-	wire [3:0] r_bkgnd;
-	wire [3:0] g_bkgnd;
-	wire [3:0] b_bkgnd;
-	
-	assign r_bkgnd [3] = colr_val [2];
-	assign g_bkgnd [3] = colr_val [1];
-	assign b_bkgnd [3] = colr_val [0];
-	
-	assign r_bkgnd [2:0] = (colr_val [3] & r_bkgnd [3]) ? 3'b111 : 3'b000;
-	assign g_bkgnd [2:0] = (colr_val [3] & g_bkgnd [3]) ? 3'b111 : 3'b000;
-	assign b_bkgnd [2:0] = (colr_val [3] & b_bkgnd [3]) ? 3'b111 : 3'b000;
-	
 	reg [7:0] user_char;
 	reg [7:0] user_colr;
 	
-	(* keep *) wire pixel;
+	wire pixel;
 	
 	assign screen_address [6:0] = screenX;
 	assign screen_address [11:7] = screenY;
@@ -67,19 +43,10 @@ module text_mode (
 	wire [3:0] g_pixel;
 	wire [3:0] b_pixel;
 	
-	assign r_pixel = pixel ? r_fgnd : r_bkgnd;
-	assign g_pixel = pixel ? g_fgnd : g_bkgnd;
-	assign b_pixel = pixel ? b_fgnd : b_bkgnd;
-	
-	
 	assign r_vga_o = (h_pixel < 640) ? r_pixel : 4'b0000;
 	assign g_vga_o = (h_pixel < 640) ? g_pixel : 4'b0000;
 	assign b_vga_o = (h_pixel < 640) ? b_pixel : 4'b0000;
 	
-	//assign r_vga_o [0] = (pixel & (h_pixel < 640)), r_vga_o [1] = (pixel & (h_pixel < 640)), r_vga_o [2] = (pixel & (h_pixel < 640)), r_vga_o [3] = (pixel & (h_pixel < 640));
-	//assign g_vga_o [0] = (pixel & (h_pixel < 640)), g_vga_o [1] = (pixel & (h_pixel < 640)), g_vga_o [2] = (pixel & (h_pixel < 640)), g_vga_o [3] = (pixel & (h_pixel < 640));
-	//assign b_vga_o [0] = (pixel & (h_pixel < 640)), b_vga_o [1] = (pixel & (h_pixel < 640)), b_vga_o [2] = (pixel & (h_pixel < 640)), b_vga_o [3] = (pixel & (h_pixel < 640));
-
 	fclock z (
 		.inclk0 (clk),
 		.c0 (fclock)
@@ -112,6 +79,14 @@ module text_mode (
 		.col (subX),
 		.row (subY),
 		.pixel (pixel)
+	);
+	
+	color_pixel e (
+		.pixel (pixel),
+		.colr_val (colr_val),
+		.red_o (r_pixel),
+		.green_o (g_pixel),
+		.blue_o (b_pixel)
 	);
 	
 	always @(posedge vga_clk) begin
