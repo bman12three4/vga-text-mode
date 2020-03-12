@@ -28,9 +28,6 @@ module text_mode (
 	reg [9:0] h_pixel;
 	reg [9:0] line;
 	
-	(*keep *) wire [7:0] pixel_mask; /* preserve */
-	assign pixel_mask = (8'b1 << subX);
-	
 	wire [7:0] chr_val;
 	wire [7:0] colr_val;
 	
@@ -109,20 +106,13 @@ module text_mode (
 		.q (colr_val)
 	);
 	
-	wire [10:0] pixel_addr;
-	wire [7:0] char_byte;
-	
-	assign pixel_addr = ((chr_val - 32) << 4) + subY;   //so for the "1", thats 21h, or 33. 33-32 is 1, 
-																		//1<<4 is 16, so this should go from 16 to 31, or 10h to 1f
-	
-	chr_rom d (
-		.address (pixel_addr),
-		.clock (fclock),
-		.q (char_byte)
+	chr_rom_ctrl d (
+		.clk (fclock),
+		.chr_val (chr_val),
+		.col (subX),
+		.row (subY),
+		.pixel (pixel)
 	);
-	
-			 
-	assign pixel = (char_byte & pixel_mask) >> subX; // so if char_byte is 00011000, pixel mask is 00010000, so the first is 00010000
 	
 	always @(posedge vga_clk) begin
 
