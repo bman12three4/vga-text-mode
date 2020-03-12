@@ -17,9 +17,11 @@ module text_mode (
 		
 	);
 	
-	(* keep *) wire vga_clk;
+	wire vga_clk;
 	
-	wire [7:0] screen_address /*synthesis keep */;
+	wire fclock;
+	
+	wire [11:0] screen_address /*synthesis keep */;
 
 	
 	reg [6:0] screenX/*synthesis noprune */; //These are the 80x25 subacters
@@ -31,9 +33,11 @@ module text_mode (
 	reg [9:0] h_pixel;
 	reg [9:0] line;
 	
-	(* keep *) wire [7:0] chr_val;
+	wire [7:0] chr_val;
+	wire [7:0] colr_val;
 	
 	reg [7:0] user_char;
+	reg [7:0] user_colr;
 	
 	wire chipclk;
 	assign chipclk = clk_ext1 & ~cs;
@@ -48,34 +52,34 @@ module text_mode (
 	reg [7:0] int_reg [3:0]; // 16 8 bit registers
 	reg [3:0] curr_addr;		// Current address
 	
-	wire ram_wren;
-	assign ram_wren = (curr_addr == 4'b1) ? ~wren : 1'b0;
+	wire wren_ms;
+	assign wren_ms = (curr_addr == 4'b1) ? ~wren : 1'b0;
+	
+	wire wren_mc;
+	assign wren_mc = (curr_addr == 4'd2) ? ~wren : 1'b0;
 	
 	assign data_out = (curr_addr == 4'b1) ? chr_val : int_reg[curr_addr];
-
-	wire enable;
-	assign enable = int_reg[0][0];
 	
-	wire [2:0] gfx_mode;
-	assign gfx_mode = int_reg[0][7:5];
-	
-	(* keep *) wire pixel;
+	wire pixel;
 	
 	assign screen_address [6:0] = screenX;
-	assign screen_address [7] = screenY;
+	assign screen_address [11:7] = screenY;
 	
 	wire [3:0] r_pixel;
 	wire [3:0] g_pixel;
 	wire [3:0] b_pixel;
 	
-	assign r_vga_o = enable & r_pixel & (h_pixel < 640);
-	assign g_vga_o = enable & g_pixel & (h_pixel < 640);
-	assign b_vga_o = enable & r_pixel & (h_pixel < 640);
-	
-	//assign r_vga_o [0] = (enable & pixel & (h_pixel < 640)), r_vga_o [1] = (enable & pixel & (h_pixel < 640)), r_vga_o [2] = (enable & pixel & (h_pixel < 640)), r_vga_o [3] = (enable & pixel & (h_pixel < 640));
-	//assign g_vga_o [0] = (enable & pixel & (h_pixel < 640)), g_vga_o [1] = (enable & pixel & (h_pixel < 640)), g_vga_o [2] = (enable & pixel & (h_pixel < 640)), g_vga_o [3] = (enable & pixel & (h_pixel < 640));
-	//assign b_vga_o [0] = (enable & pixel & (h_pixel < 640)), b_vga_o [1] = (enable & pixel & (h_pixel < 640)), b_vga_o [2] = (enable & pixel & (h_pixel < 640)), b_vga_o [3] = (enable & pixel & (h_pixel < 640));
+	assign r_vga_o = (h_pixel < 640) ? r_pixel : 4'b0000;
+	assign g_vga_o = (h_pixel < 640) ? g_pixel : 4'b0000;
+	assign b_vga_o = (h_pixel < 640) ? b_pixel : 4'b0000;
 
+	
+	fclock z (
+		.inclk0 (clk),
+		.c0 (fclock)
+	);
+
+	
 	vga_clk a (
 		.inclk0 (clk),
 		.c0 (vga_clk)
@@ -84,21 +88,37 @@ module text_mode (
 	screen_ram b  (
 		.rdaddress (screen_address),
 		.wraddress (int_reg[0]),
-		.clock (clk),
+		.clock (fclock),
 		.data (int_reg[1]),
-		.wren (ram_wren),
+		.wren (wren_ms),
 		.q (chr_val)
 	);
 	
-	chr_rom_ctrl c (
-		.clk (clk),
+	color_ram c (
+		.rdaddress (screen_address),
+		.wraddress (int_reg[0]),
+		.clock (fclock),
+		.data (int_reg[2]),
+		.wren (wren_mc),
+		.q (colr_val)
+	);
+	
+	chr_rom_ctrl d (
+		.clk (fclock),
 		.chr_val (chr_val),
 		.col (subX),
 		.row (subY),
-		.r_pixel (r_pixel),
-		.g_pixel (g_pixel),
-		.b_pixel (b_pixel)
+		.pixel (pixel)
 	);
+	
+	color_pixel e (
+		.pixel (pixel),
+		.colr_val (colr_val),
+		.red_o (r_pixel),
+		.green_o (g_pixel),
+		.blue_o (b_pixel)
+	);
+
 	
 	always @ (posedge chipclk) begin
 			curr_addr = rs;
