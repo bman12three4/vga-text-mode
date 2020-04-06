@@ -21,8 +21,8 @@ module text_mode (
 	
 	wire fclock;
 	
-	wire [11:0] screen_address /*synthesis keep */;
-
+	wire [11:0] screen_r_address /*synthesis keep */;
+	wire [11:0] screen_w_address;
 	
 	reg [6:0] screenX/*synthesis noprune */; //These are the 80x25 subacters
 	reg [4:0] screenY/*synthesis noprune */;
@@ -48,8 +48,7 @@ module text_mode (
 	assign data_bi = (wren & chipclk) ? data_out : 8'bZ;
 	assign data_in = data_bi;
 
-	
-	reg [7:0] int_reg [3:0]; // 16 8 bit registers
+	reg [7:0] int_reg [15:0]; // 16 8 bit registers
 	reg [3:0] curr_addr;		// Current address
 	
 	wire wren_ms;
@@ -62,8 +61,11 @@ module text_mode (
 	
 	wire pixel;
 	
-	assign screen_address [6:0] = screenX;
-	assign screen_address [11:7] = screenY;
+	assign screen_r_address [6:0] = screenX;
+	assign screen_r_address [11:7] = screenY;
+	
+	assign screen_w_address [6:0] = int_reg[3][6:0];
+	assign screen_w_address [11:7] = int_reg[4][4:0];
 	
 	wire [3:0] r_pixel;
 	wire [3:0] g_pixel;
@@ -86,8 +88,8 @@ module text_mode (
 	);
 	
 	screen_ram b  (
-		.rdaddress (screen_address),
-		.wraddress (int_reg[0]),
+		.rdaddress (screen_r_address),
+		.wraddress (screen_w_address),
 		.clock (fclock),
 		.data (int_reg[1]),
 		.wren (wren_ms),
@@ -95,8 +97,8 @@ module text_mode (
 	);
 	
 	color_ram c (
-		.rdaddress (screen_address),
-		.wraddress (int_reg[0]),
+		.rdaddress (screen_r_address),
+		.wraddress (screen_w_address),
 		.clock (fclock),
 		.data (int_reg[2]),
 		.wren (wren_mc),
