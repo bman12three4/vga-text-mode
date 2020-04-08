@@ -4,7 +4,7 @@
 // MODULE: altsyncram 
 
 // ============================================================
-// File Name: screen_ram.v
+// File Name: color_ram.v
 // Megafunction Name(s):
 // 			altsyncram
 //
@@ -36,7 +36,7 @@
 // synopsys translate_off
 `timescale 1 ps / 1 ps
 // synopsys translate_on
-module screen_ram (
+module color_ram (
 	clock,
 	data,
 	rdaddress,
@@ -98,7 +98,7 @@ module screen_ram (
 		altsyncram_component.numwords_b = 4096,
 		altsyncram_component.operation_mode = "DUAL_PORT",
 		altsyncram_component.outdata_aclr_b = "NONE",
-		altsyncram_component.outdata_reg_b = "CLOCK0",
+		altsyncram_component.outdata_reg_b = "UNREGISTERED",
 		altsyncram_component.power_up_uninitialized = "FALSE",
 		altsyncram_component.read_during_write_mode_mixed_ports = "OLD_DATA",
 		altsyncram_component.widthad_a = 12,
@@ -148,7 +148,7 @@ endmodule
 // Retrieval info: PRIVATE: MIFfilename STRING ""
 // Retrieval info: PRIVATE: OPERATION_MODE NUMERIC "2"
 // Retrieval info: PRIVATE: OUTDATA_ACLR_B NUMERIC "0"
-// Retrieval info: PRIVATE: OUTDATA_REG_B NUMERIC "1"
+// Retrieval info: PRIVATE: OUTDATA_REG_B NUMERIC "0"
 // Retrieval info: PRIVATE: RAM_BLOCK_TYPE NUMERIC "0"
 // Retrieval info: PRIVATE: READ_DURING_WRITE_MODE_MIXED_PORTS NUMERIC "1"
 // Retrieval info: PRIVATE: READ_DURING_WRITE_MODE_PORT_A NUMERIC "3"
@@ -184,7 +184,7 @@ endmodule
 // Retrieval info: CONSTANT: NUMWORDS_B NUMERIC "4096"
 // Retrieval info: CONSTANT: OPERATION_MODE STRING "DUAL_PORT"
 // Retrieval info: CONSTANT: OUTDATA_ACLR_B STRING "NONE"
-// Retrieval info: CONSTANT: OUTDATA_REG_B STRING "CLOCK0"
+// Retrieval info: CONSTANT: OUTDATA_REG_B STRING "UNREGISTERED"
 // Retrieval info: CONSTANT: POWER_UP_UNINITIALIZED STRING "FALSE"
 // Retrieval info: CONSTANT: READ_DURING_WRITE_MODE_MIXED_PORTS STRING "OLD_DATA"
 // Retrieval info: CONSTANT: WIDTHAD_A NUMERIC "12"
@@ -204,10 +204,10 @@ endmodule
 // Retrieval info: CONNECT: @data_a 0 0 8 0 data 0 0 8 0
 // Retrieval info: CONNECT: @wren_a 0 0 0 0 wren 0 0 0 0
 // Retrieval info: CONNECT: q 0 0 8 0 @q_b 0 0 8 0
-// Retrieval info: GEN_FILE: TYPE_NORMAL screen_ram.v TRUE
-// Retrieval info: GEN_FILE: TYPE_NORMAL screen_ram.inc FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL screen_ram.cmp FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL screen_ram.bsf FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL screen_ram_inst.v FALSE
-// Retrieval info: GEN_FILE: TYPE_NORMAL screen_ram_bb.v FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL color_ram.v TRUE
+// Retrieval info: GEN_FILE: TYPE_NORMAL color_ram.inc FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL color_ram.cmp FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL color_ram.bsf FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL color_ram_inst.v FALSE
+// Retrieval info: GEN_FILE: TYPE_NORMAL color_ram_bb.v FALSE
 // Retrieval info: LIB_FILE: altera_mf
